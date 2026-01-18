@@ -1,5 +1,5 @@
 name: workspace
-description: 'Thesis Project'
+description: 'Work Space'
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,48 +10,82 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #NETWORK
   dio: ^5.9.0
   http: ^1.5.0
   url_launcher: ^6.3.2
-  connectivity_plus: ^7.0.0
+  connectivity_plus: ^6.1.5
+
+  #STATEMANAGEMENT
   bloc: ^9.1.0
+  meta: ^1.16.0
   fpdart: ^1.1.1
-  get_it: ^8.2.0
   equatable: ^2.0.7
+  collection: ^1.19.1
   flutter_bloc: ^9.1.1
+
+  #DATABASE
+  shared_preferences: ^2.5.3
+
+  #UTILS
   intl: ^0.20.2
-  logger: ^2.6.2
+  logger: ^2.6.0
+  upgrader: ^11.5.0
+  share_plus: ^11.1.0
+  image_cropper: ^9.1.0
+  path_provider: ^2.1.5
   easy_localization: ^3.0.8
+  permission_handler: ^12.0.1
+  flutter_image_compress: ^2.4.0
+  image_gallery_saver_plus: ^4.0.1
+
+  #WIDGETS
+  flutter_svg: ^2.2.0
+  intl_phone_field: ^3.2.0
+  custom_rating_bar: ^3.0.0
+  another_flushbar: ^1.12.31
+  cached_network_image: ^3.4.1
+  infinite_scroll_pagination: ^5.1.1
+  syncfusion_flutter_datepicker: ^31.1.22
+
+  #UI&DESIGN
+  pinput: ^5.0.2
+  shimmer: ^3.0.0
+  fl_chart: ^1.1.1
+  dotted_line: ^3.2.3
+  action_slider: ^0.7.0
+  dotted_border: ^3.1.0
+  cupertino_icons: ^1.0.8
+
+  #PICKER
+  image_picker: ^1.2.0
+
+  #ANIMATION
+  animations: ^2.1.1
+
+  #WEBVIEW
+  webview_flutter: ^4.13.0
+  flutter_widget_from_html: ^0.17.1
+
+  #LOCATION
   location: ^8.0.1
   geocoding: ^4.0.0
-  image_picker: ^1.2.0
-  image_cropper: ^11.0.0
-  shared_preferences: ^2.5.3
-  flutter_svg: ^2.2.1
-  intl_phone_field: ^3.2.0
-  another_flushbar: ^1.12.32
-  cached_network_image: ^3.4.1
-  infinite_scroll_pagination: ^4.1.0
-  pinput: ^5.0.1
-  shimmer: ^3.0.0
-  dotted_line: ^3.2.3
-  dotted_border: ^3.1.0
-  carousel_slider: ^5.1.1
-  cupertino_icons: ^1.0.8
-  flutter_widget_from_html: ^0.17.1
-  google_maps_flutter: ^2.13.1
   geolocator: ^14.0.1
-  syncfusion_flutter_datepicker: ^31.1.22
-  action_slider: ^0.7.0
-  permission_handler: ^12.0.1
-  fl_chart: ^1.1.1
+  flutter_timezone: ^4.1.1
+  flutter_osm_plugin: ^1.4.3
+  google_maps_flutter: ^2.13.1
+
+  #PAYMENT
+  flutter_stripe: ^12.0.2
+
+  #FIREBASE
   firebase_core: ^4.1.1
   firebase_auth: ^6.1.0
+  google_sign_in: ^7.2.0
   cloud_firestore: ^6.0.2
   firebase_storage: ^13.0.2
   firebase_messaging: ^16.0.2
-  flutter_image_compress: ^2.4.0
-  
+
 
 dev_dependencies:
   flutter_test:

@@ -34,7 +34,7 @@ class PermissionService with WidgetsBindingObserver {
     if (status.isPermanentlyDenied || status.isRestricted) {
       if (!context.mounted) return false;
 
-      await AppPopup.show(
+      await AppPopup.showAnimated(
         context: context,
         child: ApprovalWidget(
           title: 'Location Access Needed',

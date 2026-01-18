@@ -1,5 +1,1 @@
-# workspace
-# Work Sync
-# com.workspace.app
-
-fba "Work Sync"
+DevWorkspace: A curated collection of high-quality Flutter projects, featuring clean code architecture, best practices, and sample apps. Includes MSc thesis, IoT integrations, ML/AI implementations, and Fuchsia OS experiments. Explore reusable code and innovative solutions!

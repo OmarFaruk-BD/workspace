@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:another_flushbar/flushbar.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 
 class AppSnackBar {
+  const AppSnackBar._();
+
   static void show(
     BuildContext context,
-    String text, {
-    int seconds = 4,
-    String? actionText,
-    bool isError = false,
+    String message, {
+    int duration = 4,
+    String? actionLabel,
     VoidCallback? onAction,
+    Color backgroundColor = AppColors.green,
   }) {
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
+    final messenger = ScaffoldMessenger.of(context);
+
+    messenger
+      ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
-          elevation: 0,
+          backgroundColor: backgroundColor,
+          margin: const EdgeInsets.all(12),
+          padding: EdgeInsets.only(left: 15),
           behavior: SnackBarBehavior.floating,
-          duration: Duration(seconds: seconds),
+          duration: Duration(seconds: duration),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          backgroundColor: isError ? AppColors.red : AppColors.green,
           content: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: Text(
-                  text,
+                  message,
                   style: const TextStyle(
                     fontSize: 16,
                     color: AppColors.white,
@@ -35,20 +38,11 @@ class AppSnackBar {
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
-              InkWell(
-                onTap: () {
-                  onAction != null
-                      ? onAction.call()
-                      : ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                },
-                child: Text(
-                  actionText ?? 'OK',
-                  style: const TextStyle(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              SizedBox(width: 5),
+              SnackBarAction(
+                label: actionLabel ?? 'OK',
+                textColor: Colors.white,
+                onPressed: onAction ?? () => messenger.hideCurrentSnackBar(),
               ),
             ],
           ),
@@ -56,45 +50,11 @@ class AppSnackBar {
       );
   }
 
-  static void error(BuildContext context, String text, {int seconds = 5}) {
-    show(context, text, seconds: seconds, isError: true);
+  static void success(BuildContext context, String message) {
+    return show(context, message, duration: 3);
   }
 
-  static void flushbar(
-    BuildContext context,
-    String? message, {
-    String? title,
-    int seconds = 4,
-    String? actionText,
-    bool isError = false,
-    VoidCallback? onAction,
-  }) {
-    Flushbar(
-      title: title,
-      message: message,
-      titleColor: AppColors.white,
-      messageColor: AppColors.white,
-      margin: const EdgeInsets.all(8),
-      animationDuration: Durations.short4,
-      duration: Duration(seconds: seconds),
-      forwardAnimationCurve: Curves.easeIn,
-      reverseAnimationCurve: Curves.easeOut,
-      flushbarStyle: FlushbarStyle.FLOATING,
-      flushbarPosition: FlushbarPosition.TOP,
-      borderRadius: BorderRadius.circular(8),
-      backgroundColor: isError ? AppColors.red : AppColors.green,
-      mainButton: InkWell(
-        onTap: () {
-          onAction != null ? onAction.call() : Navigator.pop(context);
-        },
-        child: Text(
-          actionText ?? 'OK  ',
-          style: const TextStyle(
-            color: AppColors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ).show(context);
+  static void error(BuildContext context, String message) {
+    return show(context, message, backgroundColor: AppColors.red, duration: 6);
   }
 }

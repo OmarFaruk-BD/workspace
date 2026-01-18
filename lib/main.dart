@@ -4,11 +4,11 @@ import 'package:workspace/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:workspace/core/utils/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:workspace/features/auth/cubit/auth_cubit.dart';
-import 'package:workspace/features/home/cubit/home_cubit.dart';
-import 'package:workspace/features/landing/splash_screen.dart';
-import 'package:workspace/features/dashboard/cubit/leave_cubit.dart';
-import 'package:workspace/features/history/cubit/attendance_cubit.dart';
+import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
+import 'package:workspace/features/thesis/home/cubit/home_cubit.dart';
+import 'package:workspace/features/thesis/landing/splash_screen.dart';
+import 'package:workspace/features/thesis/dashboard/cubit/leave_cubit.dart';
+import 'package:workspace/features/thesis/history/cubit/attendance_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

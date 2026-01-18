@@ -3,21 +3,27 @@ import 'package:flutter/material.dart';
 class AppNavigator {
   static const Duration _duration = Duration(milliseconds: 300);
 
-  static void pushTo(
-    BuildContext context,
-    Widget widget, {
-    VoidCallback? onBack,
-  }) {
-    Navigator.push<void>(
+  static Future<T?> push<T>(BuildContext context, Widget widget) {
+    return Navigator.push<T>(
       context,
-      MaterialPageRoute(builder: (context) => widget),
-    ).then((value) => onBack?.call());
+      MaterialPageRoute(builder: (_) => widget),
+    );
   }
 
-  static void push(BuildContext context, Widget widget) {
-    Navigator.push<void>(
+  static Future<T?> pushAndRemoveUntil<T>(BuildContext context, Widget widget) {
+    return Navigator.pushAndRemoveUntil<T>(
       context,
-      PageRouteBuilder(
+      MaterialPageRoute(builder: (_) => widget),
+      (Route<dynamic> route) => false,
+    );
+  }
+
+  static void pop<T>(BuildContext context) => Navigator.pop<T>(context);
+
+  static Future<T?> pushTo<T>(BuildContext context, Widget widget) {
+    return Navigator.push<T>(
+      context,
+      PageRouteBuilder<T>(
         transitionDuration: _duration,
         reverseTransitionDuration: _duration,
         pageBuilder: (context, animation, secondaryAnimation) => widget,
@@ -36,9 +42,12 @@ class AppNavigator {
     );
   }
 
-  static void pushAndRemoveUntil(BuildContext context, Widget widget) {
-    Navigator.of(context).pushAndRemoveUntil<void>(
-      PageRouteBuilder(
+  static Future<T?> pushAndRemoveUntilTo<T>(
+    BuildContext context,
+    Widget widget,
+  ) {
+    return Navigator.of(context).pushAndRemoveUntil<T>(
+      PageRouteBuilder<T>(
         transitionDuration: _duration,
         reverseTransitionDuration: _duration,
         pageBuilder: (context, animation, secondaryAnimation) => widget,
