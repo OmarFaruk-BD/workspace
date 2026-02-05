@@ -40,6 +40,7 @@ class LightTheme extends AppTheme {
             ),
       );
 
+  @override
   ElevatedButtonThemeData get elevatedButtonThemeData =>
       ElevatedButtonThemeData(
         style: FilledButton.styleFrom(
@@ -55,6 +56,25 @@ class LightTheme extends AppTheme {
       );
 
   @override
+  InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
+    filled: true,
+    fillColor: colors.background,
+    prefixIconColor: colors.primary,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: colors.primary),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: colors.primary),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: colors.primary),
+    ),
+  );
+
+  @override
   TextTheme get textTheme =>
       TextTheme(titleLarge: TextStyles.title, titleMedium: TextStyles.subTitle);
 
@@ -67,6 +87,7 @@ class LightTheme extends AppTheme {
       backgroundColor: colors.background,
     ),
     filledButtonTheme: filledButtonThemeData,
+    inputDecorationTheme: inputDecorationTheme,
     outlinedButtonTheme: outlinedButtonThemeData,
     elevatedButtonTheme: elevatedButtonThemeData,
   );

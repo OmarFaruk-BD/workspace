@@ -87,6 +87,7 @@ class _OSMPageState extends State<OSMPage> {
             SizedBox(height: 20),
           ],
           ElevatedButton(onPressed: _handleTap, child: Text(buttonText)),
+          SizedBox(height: 20),
         ],
       ),
     );

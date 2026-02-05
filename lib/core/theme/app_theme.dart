@@ -38,6 +38,8 @@ abstract class AppTheme {
   ThemeData get theme;
   AppColors get colors;
   TextTheme get textTheme;
+  InputDecorationTheme get inputDecorationTheme;
   FilledButtonThemeData get filledButtonThemeData;
   OutlinedButtonThemeData get outlinedButtonThemeData;
+  ElevatedButtonThemeData get elevatedButtonThemeData;
 }
