@@ -20,7 +20,7 @@ class _OSMPageState extends State<OSMPage> {
     return "Go To Map Page";
   }
 
-  Future<void> handleTap() async {
+  Future<void> _handleTap() async {
     if (startPoint == null) {
       final result = await showSimplePickerLocation(
         radius: 12,
@@ -86,7 +86,7 @@ class _OSMPageState extends State<OSMPage> {
             ),
             SizedBox(height: 20),
           ],
-          ElevatedButton(onPressed: handleTap, child: Text(buttonText)),
+          ElevatedButton(onPressed: _handleTap, child: Text(buttonText)),
         ],
       ),
     );
