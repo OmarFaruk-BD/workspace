@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:workspace/core/theme/light_theme.dart';
+import 'package:workspace/core/theme/app_theme.dart';
+import 'package:workspace/core/theme/theme_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:workspace/features/osm_map/osm_page.dart';
 import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
@@ -35,16 +36,21 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (_) => AuthCubit()),
         BlocProvider<HomeCubit>(create: (_) => HomeCubit()),
+        BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
         BlocProvider<LeaveCubit>(create: (_) => LeaveCubit()),
         BlocProvider<AttendanceCubit>(create: (_) => AttendanceCubit()),
       ],
-      child: MaterialApp(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        debugShowCheckedModeBanner: false,
-        theme: LightTheme().theme,
-        locale: context.locale,
-        home: OSMPage(),
+      child: BlocBuilder<ThemeCubit, AppTheme>(
+        builder: (context, state) {
+          return MaterialApp(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            locale: context.locale,
+            theme: state.theme,
+            home: OSMPage(),
+          );
+        },
       ),
     );
   }

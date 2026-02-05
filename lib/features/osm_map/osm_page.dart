@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:workspace/core/theme/theme_cubit.dart';
 import 'package:workspace/features/osm_map/map_page.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 
@@ -68,7 +70,7 @@ class _OSMPageState extends State<OSMPage> {
         children: [
           Text(
             'Pick start and end point to go to map page',
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           SizedBox(height: 20),
           if (startPoint != null) ...[
@@ -88,6 +90,14 @@ class _OSMPageState extends State<OSMPage> {
           ],
           ElevatedButton(onPressed: _handleTap, child: Text(buttonText)),
           SizedBox(height: 20),
+          ElevatedButton.icon(
+            onPressed: () {
+              context.read<ThemeCubit>().toggleTheme();
+            },
+            icon: Icon(Icons.palette),
+            label: Text('Change Theme'),
+          ),
+          SizedBox(height: 50),
         ],
       ),
     );
