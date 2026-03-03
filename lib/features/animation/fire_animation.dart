@@ -73,7 +73,7 @@ class _FireAnimationState extends State<FireAnimation>
   }
 
   void _updateParticles() {
-    final deltaTime = 1 / 60;
+    const deltaTime = 1 / 60;
 
     // Update particles
     for (final particle in _particles) {

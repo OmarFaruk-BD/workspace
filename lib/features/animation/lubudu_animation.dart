@@ -246,8 +246,8 @@ class LabubuPainter extends CustomPainter {
     canvas.drawPath(mouthPath, mouthPaint);
 
     // Teeth
-    final double toothWidth = 8;
-    final double toothHeight = 7;
+    const double toothWidth = 8;
+    const double toothHeight = 7;
     canvas.drawRect(
       Rect.fromLTWH(
         headCenter.dx - headRadius * 0.4 + 5,

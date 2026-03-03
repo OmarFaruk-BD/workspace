@@ -74,7 +74,7 @@ class _DifferentAnimationPageState extends State<DifferentAnimationPage>
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Animation')),
+        appBar: AppBar(title: const Text('Animation')),
         body: Center(
           child: AnimatedBuilder(
             animation: _controller,

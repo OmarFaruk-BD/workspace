@@ -36,32 +36,32 @@ class _CreateLeaveRequestState extends State<CreateLeaveRequest> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Create Leave Request'),
+        appBar: const CustomAppBar(title: 'Create Leave Request'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Leave Request Title'),
-                SizedBox(height: 8),
+                const Text('Leave Request Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter leave request title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Leave Request Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Request Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter leave request description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Leave Duration'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Duration'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(
@@ -73,7 +73,7 @@ class _CreateLeaveRequestState extends State<CreateLeaveRequest> {
                     final dateRange = await showDateRangePicker(
                       context: context,
                       firstDate: DateTime.now(),
-                      lastDate: DateTime.now().add(Duration(days: 365)),
+                      lastDate: DateTime.now().add(const Duration(days: 365)),
                       initialDateRange: DateTimeRange(
                         start: _fromDate ?? DateTime.now(),
                         end: _toDate ?? DateTime.now(),
@@ -85,9 +85,9 @@ class _CreateLeaveRequestState extends State<CreateLeaveRequest> {
                     });
                   },
                 ),
-                SizedBox(height: 20),
-                Text('Leave Request Type'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Request Type'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _leaveType),
@@ -104,14 +104,14 @@ class _CreateLeaveRequestState extends State<CreateLeaveRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Create Leave Request',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _createLeaveRequest,
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

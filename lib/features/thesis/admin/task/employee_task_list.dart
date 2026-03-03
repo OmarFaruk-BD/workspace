@@ -31,17 +31,17 @@ class _EmployeeTaskListState extends State<EmployeeTaskList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdminAppBar(title: 'Task List'),
+      appBar: const AdminAppBar(title: 'Task List'),
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: fetchEmployeeTask,
           child: ListView(
-            padding: EdgeInsets.all(25),
+            padding: const EdgeInsets.all(25),
             children: [
               if (_isLoading)
-                Center(child: CircularProgressIndicator())
+                const Center(child: CircularProgressIndicator())
               else if (_tasks.isEmpty)
-                Center(child: Text('No tasks found.'))
+                const Center(child: Text('No tasks found.'))
               else
                 ..._tasks.map((item) {
                   return TaskItem(task: item, onBack: fetchEmployeeTask);

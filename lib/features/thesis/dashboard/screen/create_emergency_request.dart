@@ -42,32 +42,32 @@ class _CreateEmergencyRequestState extends State<CreateEmergencyRequest> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Create Emergency Request'),
+        appBar: const CustomAppBar(title: 'Create Emergency Request'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Emergency Request Title'),
-                SizedBox(height: 8),
+                const Text('Emergency Request Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter request title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Emergency Request Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Emergency Request Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter request description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Emergency Request Priority'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Emergency Request Priority'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _priority),
@@ -84,14 +84,14 @@ class _CreateEmergencyRequestState extends State<CreateEmergencyRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Create Emergency Request',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _createRequest,
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

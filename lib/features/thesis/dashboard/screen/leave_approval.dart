@@ -59,7 +59,7 @@ class _LeaveApprovalState extends State<LeaveApproval> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (leaveModel?.pending?.items?.data?.isNotEmpty == true &&
               selectedItem == 'Pending')
             ...List.generate(leaveModel!.pending!.items!.data!.length, (index) {

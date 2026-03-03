@@ -17,72 +17,72 @@ class _GalaxyNavigationState extends State<GalaxyNavigation> with SingleTickerPr
   Offset _cameraVel = Offset.zero;
 
   final List<Planet> _planets = [
-    Planet(
+    const Planet(
       name: 'Mercury',
-      color: const Color(0xFFB2B2B2),
+      color: Color(0xFFB2B2B2),
       size: 10,
       orbitRadius: 80,
       orbitSpeed: 1.8,
       icon: Icons.bolt,
       info: 'Smallest planet. Fast orbit.',
     ),
-    Planet(
+    const Planet(
       name: 'Venus',
-      color: const Color(0xFFE3C07B),
+      color: Color(0xFFE3C07B),
       size: 14,
       orbitRadius: 120,
       orbitSpeed: 1.3,
       icon: Icons.spa,
       info: 'Thick atmosphere. Hottest surface.',
     ),
-    Planet(
+    const Planet(
       name: 'Earth',
-      color: const Color(0xFF50B4FF),
+      color: Color(0xFF50B4FF),
       size: 15,
       orbitRadius: 160,
       orbitSpeed: 1.0,
       icon: Icons.public,
       info: 'Our blue marble. Life confirmed!',
     ),
-    Planet(
+    const Planet(
       name: 'Mars',
-      color: const Color(0xFFE66B6B),
+      color: Color(0xFFE66B6B),
       size: 12,
       orbitRadius: 200,
       orbitSpeed: 0.8,
       icon: Icons.landscape,
       info: 'The red planet. Future outpost?',
     ),
-    Planet(
+    const Planet(
       name: 'Jupiter',
-      color: const Color(0xFFF2D2A9),
+      color: Color(0xFFF2D2A9),
       size: 26,
       orbitRadius: 260,
       orbitSpeed: 0.45,
       icon: Icons.wind_power,
       info: 'Gas giant. Great Red Spot.',
     ),
-    Planet(
+    const Planet(
       name: 'Saturn',
-      color: const Color(0xFFEFD8A5),
+      color: Color(0xFFEFD8A5),
       size: 24,
       orbitRadius: 320,
       orbitSpeed: 0.35,
       icon: Icons.rowing,
       info: 'Iconic rings. Stunning view.',
     ),
-    Planet(
+    const Planet(
       name: 'Uranus',
-      color: const Color(0xFF9CE7EA),
+      color: Color(0xFF9CE7EA),
       size: 18,
       orbitRadius: 370,
       orbitSpeed: 0.25,
       icon: Icons.ac_unit,
       info: 'Icy giant. Spins on its side.',
     ),
-    Planet(
+    const Planet(
       name: 'Neptune',
-      color: const Color(0xFF4BA3F2),
+      color: Color(0xFF4BA3F2),
       size: 18,
       orbitRadius: 420,
       orbitSpeed: 0.2,
@@ -130,9 +130,9 @@ class _GalaxyNavigationState extends State<GalaxyNavigation> with SingleTickerPr
         child: Stack(
           children: [
             // Deep space gradient
-            Positioned.fill(
+            const Positioned.fill(
               child: DecoratedBox(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: RadialGradient(
                     colors: [Color(0xFF03060E), Color(0xFF070B17), Color(0xFF060911)],
                     radius: 1.2,
@@ -298,9 +298,9 @@ class _PlanetDetailsPageState extends State<PlanetDetailsPage> with SingleTicker
       body: Stack(
         children: [
           // Space backdrop
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xFF050A14), Color(0xFF0B1427)],
                   begin: Alignment.topCenter,
@@ -400,7 +400,7 @@ class _PlanetInfo extends StatelessWidget {
               style: TextStyle(color: planet.color, fontSize: 24, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 20),
-            Text(planet.info, style: TextStyle(color: Colors.white, fontSize: 16)),
+            Text(planet.info, style: const TextStyle(color: Colors.white, fontSize: 16)),
             const Spacer(),
             _Chip(icon: Icons.circle_outlined, label: 'Orbit Radius: ${planet.orbitRadius}'),
             const SizedBox(height: 8),
@@ -442,7 +442,7 @@ class _Chip extends StatelessWidget {
         children: [
           Icon(icon, size: 16, color: Colors.white.withValues(alpha: 0.9)),
           const SizedBox(width: 6),
-          Text(label, style: TextStyle(color: Colors.white)),
+          Text(label, style: const TextStyle(color: Colors.white)),
         ],
       ),
     );
@@ -576,7 +576,7 @@ class SunPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final sunRadius = 42.0;
+    const sunRadius = 42.0;
     // Glow pulse
     final pulse = (sin(time * 2) * 0.5 + 0.5) * 0.25 + 0.75;
     final glowShader = RadialGradient(
@@ -591,10 +591,10 @@ class SunPainter extends CustomPainter {
     ).createShader(Rect.fromCircle(center: center, radius: sunRadius * 4));
 
     // Core
-    final coreShader = RadialGradient(
-      colors: [const Color(0xFFFFF3B0), const Color(0xFFFFC46B), const Color(0xFFE07B39)],
-      stops: const [0.0, 0.5, 1.0],
-      center: const Alignment(-0.2, -0.2),
+    final coreShader = const RadialGradient(
+      colors: [Color(0xFFFFF3B0), Color(0xFFFFC46B), Color(0xFFE07B39)],
+      stops: [0.0, 0.5, 1.0],
+      center: Alignment(-0.2, -0.2),
       radius: 1.0,
     ).createShader(Rect.fromCircle(center: center, radius: sunRadius));
 

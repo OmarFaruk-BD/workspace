@@ -17,7 +17,7 @@ class _PickLocationDialogState extends State<PickLocationDialog> {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SizedBox(
           width: double.maxFinite,
@@ -30,7 +30,7 @@ class _PickLocationDialogState extends State<PickLocationDialog> {
                   "Pick Location",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Expanded(
                   child: GoogleMap(
                     initialCameraPosition: const CameraPosition(
@@ -66,7 +66,7 @@ class _PickLocationDialogState extends State<PickLocationDialog> {
                     "Tap on the map to select a location",
                     style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
                   ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

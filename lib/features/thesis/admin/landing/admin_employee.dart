@@ -11,7 +11,7 @@ class AdminEmployeePage extends StatefulWidget {
 class _AdminEmployeePageState extends State<AdminEmployeePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: AdminAppBar(title: 'Employee Page', hasBackButton: false),
       body: Center(child: Text('Admin Employee Page')),
     );

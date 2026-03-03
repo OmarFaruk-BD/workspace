@@ -57,7 +57,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                             base64Decode(state.user?.imageUrl ?? ''),
                           ),
                         )
-                      : Icon(Icons.person, size: 40, color: AppColors.primary),
+                      : const Icon(Icons.person, size: 40, color: AppColors.primary),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -83,8 +83,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 ),
                 IconButton(
                   onPressed: () =>
-                      AppNavigator.push(context, NotificationPage()),
-                  icon: Icon(
+                      AppNavigator.push(context, const NotificationPage()),
+                  icon: const Icon(
                     Icons.notifications,
                     color: AppColors.white,
                     size: 28,
@@ -93,7 +93,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 IconButton(
                   onPressed: () =>
                       AppNavigator.push(context, ProfilePage(user: state.user)),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.account_circle,
                     color: AppColors.white,
                     size: 28,
@@ -140,7 +140,7 @@ class HeaderWidgetV2 extends StatelessWidget {
                           base64Decode(state.user?.imageUrl ?? ''),
                         ),
                       )
-                    : Icon(Icons.person, size: 40, color: AppColors.primary),
+                    : const Icon(Icons.person, size: 40, color: AppColors.primary),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -165,8 +165,8 @@ class HeaderWidgetV2 extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () => AppNavigator.push(context, NotificationPage()),
-                icon: Icon(
+                onPressed: () => AppNavigator.push(context, const NotificationPage()),
+                icon: const Icon(
                   Icons.notifications,
                   color: AppColors.white,
                   size: 28,
@@ -175,7 +175,7 @@ class HeaderWidgetV2 extends StatelessWidget {
               IconButton(
                 onPressed: () =>
                     AppNavigator.push(context, ProfilePage(user: state.user)),
-                icon: Icon(
+                icon: const Icon(
                   Icons.account_circle,
                   color: AppColors.white,
                   size: 28,

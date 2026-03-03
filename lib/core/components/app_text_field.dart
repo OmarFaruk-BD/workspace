@@ -81,7 +81,7 @@ class AppTextField extends StatelessWidget {
     return TextStyle(color: enabled ? AppColors.black : AppColors.grey);
   }
 
-  TextStyle _hintTextStyle() => TextStyle(color: AppColors.black);
+  TextStyle _hintTextStyle() => const TextStyle(color: AppColors.black);
 
   TextStyle _errorTextStyle() {
     return const TextStyle(
@@ -110,7 +110,7 @@ class TextFieldIcon extends StatelessWidget {
               ? SvgPicture.asset(image!, width: 18, height: 18)
               : icon != null
               ? Icon(icon, size: 18, color: AppColors.grey)
-              : SizedBox(),
+              : const SizedBox(),
         ),
       ),
     );

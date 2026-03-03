@@ -24,7 +24,7 @@ class InfoRow extends StatelessWidget {
                   state.attendanceDetail?.punchIn.toDateString() ?? '--:--',
                   fontWeight: FontWeight.w600,
                 ),
-                CommonText('Punch In', color: AppColors.grey),
+                const CommonText('Punch In', color: AppColors.grey),
               ],
             ),
             Column(
@@ -34,7 +34,7 @@ class InfoRow extends StatelessWidget {
                   state.attendanceDetail?.totalHours ?? '--:--',
                   fontWeight: FontWeight.w600,
                 ),
-                CommonText('Total Hours', color: AppColors.grey),
+                const CommonText('Total Hours', color: AppColors.grey),
               ],
             ),
             Column(
@@ -44,7 +44,7 @@ class InfoRow extends StatelessWidget {
                   state.attendanceDetail?.punchOut.toDateString() ?? '--:--',
                   fontWeight: FontWeight.w600,
                 ),
-                CommonText('Punch Out', color: AppColors.grey),
+                const CommonText('Punch Out', color: AppColors.grey),
               ],
             ),
           ],

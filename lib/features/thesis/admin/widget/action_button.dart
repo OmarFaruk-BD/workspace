@@ -12,19 +12,19 @@ class ActionButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.admin,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(width: 10),
-            Icon(Icons.arrow_forward_ios, size: 18, color: AppColors.admin),
+            const SizedBox(width: 10),
+            const Icon(Icons.arrow_forward_ios, size: 18, color: AppColors.admin),
           ],
         ),
       ),
@@ -40,8 +40,8 @@ class SectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.symmetric(horizontal: 25).copyWith(bottom: 20),
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 25).copyWith(bottom: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -58,9 +58,9 @@ class SectionWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           ...children,
         ],
       ),

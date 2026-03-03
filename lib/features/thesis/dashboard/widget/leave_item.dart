@@ -24,8 +24,8 @@ class _LeaveItemState extends State<LeaveItem> {
     return InkWell(
       onTap: () => AppNavigator.push(context, LeaveDetail(data: widget.leave)),
       child: Container(
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(8),
@@ -38,12 +38,12 @@ class _LeaveItemState extends State<LeaveItem> {
               children: [
                 Text(
                   widget.leave?.leaveType ?? '',
-                  style: TextStyle(color: AppColors.yellow),
+                  style: const TextStyle(color: AppColors.yellow),
                 ),
                 Text('${widget.leave?.dayCount ?? ''} Day'),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(
               width: double.maxFinite,
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
@@ -54,13 +54,13 @@ class _LeaveItemState extends State<LeaveItem> {
               child: Center(
                 child: Text(
                   widget.leave?.status ?? '',
-                  style: TextStyle(color: AppColors.yellow),
+                  style: const TextStyle(color: AppColors.yellow),
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(height: 2, width: double.infinity, color: AppColors.grey),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

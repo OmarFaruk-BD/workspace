@@ -121,26 +121,26 @@ class _PopupItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15),
       child: InkWell(
         onTap: onSelected,
         child: Card(
           child: ListTile(
             title: Text(
               employee.name ?? '',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     _buildItem(Icons.business_center, '${employee.position}'),
                     _buildItem(Icons.public_outlined, '${employee.department}'),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     _buildItem(Icons.email_outlined, '${employee.email}'),
@@ -150,7 +150,7 @@ class _PopupItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
               ],
             ),
           ),
@@ -165,12 +165,12 @@ class _PopupItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(key, size: 18),
-          SizedBox(width: 6),
+          const SizedBox(width: 6),
           Expanded(
             child: Text(
               value,
               maxLines: 2,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
             ),
           ),
         ],

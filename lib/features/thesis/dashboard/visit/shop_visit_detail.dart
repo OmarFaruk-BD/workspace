@@ -18,15 +18,15 @@ class _ShopVisitDetailState extends State<ShopVisitDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Shop Visit Detail'),
+      appBar: const CustomAppBar(title: 'Shop Visit Detail'),
       body: ListView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         children: [
           Image.memory(
             base64Decode(widget.shopVisit?.svAttachment ?? ''),
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -44,10 +44,10 @@ class _ShopVisitDetailState extends State<ShopVisitDetail> {
               spacing: 4,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Text('Shop Visit Details')),
+                const Center(child: Text('Shop Visit Details')),
                 Text(
                   'Title: ${widget.shopVisit?.svTitle ?? ''}',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 Text('Description: ${widget.shopVisit?.svDescription ?? ''}'),
                 Text('Date: ${widget.shopVisit?.svDate ?? ''}'),
@@ -57,7 +57,7 @@ class _ShopVisitDetailState extends State<ShopVisitDetail> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (widget.shopVisit?.task != null)
             Container(
               padding: const EdgeInsets.all(20),
@@ -76,10 +76,10 @@ class _ShopVisitDetailState extends State<ShopVisitDetail> {
                 spacing: 4,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: Text('Shop Visit on Task')),
+                  const Center(child: Text('Shop Visit on Task')),
                   Text(
                     'Title: ${widget.shopVisit?.task?.title ?? ''}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   Text(
                     'Description: ${widget.shopVisit?.task?.description ?? ''}',
@@ -112,15 +112,15 @@ class _ShopVisitDetailState extends State<ShopVisitDetail> {
                 spacing: 4,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: Text('Management Comments')),
+                  const Center(child: Text('Management Comments')),
                   Text(
                     widget.shopVisit?.task?.comments ?? '',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
       ),

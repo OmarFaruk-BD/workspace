@@ -74,7 +74,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
           Stack(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 50),
+                margin: const EdgeInsets.only(bottom: 50),
                 height: MediaQuery.of(context).size.height * 0.18,
                 color: AppColors.secondary,
               ),
@@ -86,7 +86,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                   child: Container(
                     width: 150,
                     height: 150,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(150),
@@ -98,21 +98,21 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                               base64Decode(user?.imageUrl ?? ''),
                             ),
                           )
-                        : AppCachedImage(AppImages.demoAvaterURL, radius: 100),
+                        : const AppCachedImage(AppImages.demoAvaterURL, radius: 100),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: Text(
               user?.name ?? '',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
           Center(child: Text(user?.position ?? 'N/A')),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           _buildItem('Name', user?.name ?? 'N/A'),
           _buildDivider(),
           _buildItem('Email', user?.email ?? 'N/A'),
@@ -139,7 +139,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
           _buildDivider(),
           _buildItem('Department', user?.department ?? 'N/A'),
           _buildDivider(),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           SectionWidget(
             title: 'Quick Actions',
             children: [
@@ -171,7 +171,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                 text: 'Delete Profile',
                 onTap: () async {
                   if (isDeleting) return;
-                  final text = 'Are you sure you want to delete this profile?';
+                  const text = 'Are you sure you want to delete this profile?';
                   await showDialog(
                     context: context,
                     builder: (context) {
@@ -312,7 +312,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
       height: 1,
       width: double.maxFinite,
       color: AppColors.grey,
-      margin: EdgeInsets.symmetric(horizontal: 40),
+      margin: const EdgeInsets.symmetric(horizontal: 40),
     );
   }
 
@@ -322,8 +322,8 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(key, style: TextStyle(color: AppColors.grey)),
-          Text(value, style: TextStyle(color: AppColors.grey)),
+          Text(key, style: const TextStyle(color: AppColors.grey)),
+          Text(value, style: const TextStyle(color: AppColors.grey)),
         ],
       ),
     );

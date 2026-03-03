@@ -56,9 +56,9 @@ class EmployeeService {
     } on FirebaseAuthException catch (e) {
       _logger.e("FirebaseAuthException: ${e.message}");
       if (e.code == 'email-already-in-use') {
-        return Left("This email is already registered.");
+        return const Left("This email is already registered.");
       } else if (e.code == 'weak-password') {
-        return Left("Password is too weak. Please use a stronger one.");
+        return const Left("Password is too weak. Please use a stronger one.");
       } else {
         return Left("Authentication error: ${e.message}");
       }

@@ -20,7 +20,7 @@ class AppSnackBar {
         SnackBar(
           backgroundColor: backgroundColor,
           margin: const EdgeInsets.all(12),
-          padding: EdgeInsets.only(left: 15),
+          padding: const EdgeInsets.only(left: 15),
           behavior: SnackBarBehavior.floating,
           duration: Duration(seconds: duration),
           shape: RoundedRectangleBorder(
@@ -38,7 +38,7 @@ class AppSnackBar {
                   ),
                 ),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               SnackBarAction(
                 label: actionLabel ?? 'OK',
                 textColor: Colors.white,

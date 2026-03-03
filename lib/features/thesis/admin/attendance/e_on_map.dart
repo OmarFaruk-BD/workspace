@@ -64,10 +64,10 @@ class _EmployeeOnMapState extends State<EmployeeOnMap> {
           children: [
             LoadingOrEmptyText(isLoading: isLoading),
             if (lat == null || long == null) ...[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (!isLoading)
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
                     '${widget.user?.name ?? ''}\'s no attendance data found.',
                   ),
@@ -75,12 +75,12 @@ class _EmployeeOnMapState extends State<EmployeeOnMap> {
             ],
 
             if (lat != null && long != null) ...[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   '${widget.user?.name ?? ''}\'s Location',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
@@ -91,12 +91,12 @@ class _EmployeeOnMapState extends State<EmployeeOnMap> {
                 lat: double.tryParse(lat ?? ''),
                 lng: double.tryParse(long ?? ''),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   'Location Address: ${address ?? ''}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.black,

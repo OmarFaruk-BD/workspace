@@ -63,47 +63,47 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: AdminAppBar(title: 'Add Employee Task'),
+        appBar: const AdminAppBar(title: 'Add Employee Task'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Task Title'),
-                SizedBox(height: 8),
+                const Text('Task Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter task title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Task Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Task Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter task description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Client Name (Optional)'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Client Name (Optional)'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _client,
                   hintText: 'Enter client name',
                 ),
-                SizedBox(height: 20),
-                Text('Target Amount (Optional)'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Target Amount (Optional)'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _amount,
                   hintText: 'Enter target amount',
                   textInputType: TextInputType.number,
                 ),
-                SizedBox(height: 20),
-                Text('Due Date'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Due Date'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(
@@ -122,9 +122,9 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                     }
                   },
                 ),
-                SizedBox(height: 20),
-                Text('Schedule Type'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Schedule Type'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _dayType),
@@ -141,9 +141,9 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                     );
                   },
                 ),
-                SizedBox(height: 20),
-                Text('Task Type'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Task Type'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _taskType),
@@ -160,9 +160,9 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                     );
                   },
                 ),
-                SizedBox(height: 20),
-                Text('Task Priority'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Task Priority'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _priority),
@@ -179,14 +179,14 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Update Task',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _editTask,
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

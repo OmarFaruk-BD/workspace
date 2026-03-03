@@ -34,10 +34,10 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
       body: BlocBuilder<AttendanceCubit, AttendanceState>(
         builder: (context, state) {
           return ListView(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 27),
+                padding: const EdgeInsets.symmetric(vertical: 27),
                 decoration: BoxDecoration(
                   color: AppColors.green,
                   borderRadius: BorderRadius.circular(8),
@@ -45,14 +45,14 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
                 child: Text(
                   '${DateTime.now().toDateString('dd MMMM yyyy')}\n${DateTime.now().toDateString('EEEE')}',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     color: AppColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               DottedBorder(
                 options: const RoundedRectDottedBorderOptions(
                   color: AppColors.yellow,
@@ -84,17 +84,17 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               _buildPunchInItem(
                 title: 'Punch In Location: ',
                 subtitle: state.attendanceDetail?.punchInLocation ?? '--:--',
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               _buildPunchInItem(
                 title: 'Punch Out Location: ',
                 subtitle: state.attendanceDetail?.punchOutLocation ?? '--:--',
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               if (state.attendanceDetail?.dutyLocation?.isNotEmpty == true)
                 ...List.generate(1, (index) {
                   final item = state.attendanceDetail?.dutyLocation?[index];
@@ -130,12 +130,12 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     return Row(
       children: [
         SvgPicture.asset(image),
-        SizedBox(width: 15),
+        const SizedBox(width: 15),
         Flexible(
           child: Text.rich(
             TextSpan(
               text: title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 color: AppColors.grey,
                 fontWeight: FontWeight.w600,
@@ -143,7 +143,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
               children: [
                 TextSpan(
                   text: subtitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.grey,
                     fontWeight: FontWeight.w400,
                   ),
@@ -166,9 +166,9 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
         SvgPicture.asset(image),
         Text(
           title,
-          style: TextStyle(color: AppColors.black, fontWeight: FontWeight.w600),
+          style: const TextStyle(color: AppColors.black, fontWeight: FontWeight.w600),
         ),
-        Text(subtitle, style: TextStyle(fontSize: 12, color: AppColors.grey)),
+        Text(subtitle, style: const TextStyle(fontSize: 12, color: AppColors.grey)),
       ],
     );
   }

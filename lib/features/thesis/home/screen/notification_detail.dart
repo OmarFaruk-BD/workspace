@@ -31,30 +31,30 @@ class _NotificationDetailState extends State<NotificationDetail> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
-          Text(
+          const Text(
             'Notification Details',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppCachedImage(
             model.priority ?? '',
             radius: 8,
             fit: BoxFit.fitWidth,
             width: MediaQuery.of(context).size.width,
           ),
-          SizedBox(height: 20),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             model.title ?? '',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 20),
-          Text(model.content ?? '', style: TextStyle(color: AppColors.grey)),
-          SizedBox(height: 20),
-          Text(model.createdAt ?? '', style: TextStyle(color: AppColors.grey)),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
+          Text(model.content ?? '', style: const TextStyle(color: AppColors.grey)),
+          const SizedBox(height: 20),
+          Text(model.createdAt ?? '', style: const TextStyle(color: AppColors.grey)),
+          const SizedBox(height: 20),
         ],
       ),
     );

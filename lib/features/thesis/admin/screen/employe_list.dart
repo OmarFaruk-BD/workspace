@@ -41,12 +41,12 @@ class _EmployeeListPageState extends State<EmployeeListPage> {
         child: RefreshIndicator(
           onRefresh: fetchEmployees,
           child: ListView(
-            padding: EdgeInsets.all(25),
+            padding: const EdgeInsets.all(25),
             children: [
               if (isLoading)
-                Center(child: CircularProgressIndicator())
+                const Center(child: CircularProgressIndicator())
               else if (employees.isEmpty)
-                Center(child: Text('No employees found.'))
+                const Center(child: Text('No employees found.'))
               else
                 ...employees.map((employee) {
                   return EmployeItem(
@@ -75,11 +75,11 @@ class EmployeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 25),
+      padding: const EdgeInsets.only(bottom: 25),
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(15),
@@ -94,19 +94,19 @@ class EmployeItem extends StatelessWidget {
           child: ListTile(
             title: Text(
               employee.name ?? '',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     _buildItem(Icons.business_center, '${employee.position}'),
                     _buildItem(Icons.public_outlined, '${employee.department}'),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     _buildItem(Icons.email_outlined, '${employee.email}'),
@@ -116,8 +116,8 @@ class EmployeItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
-                Center(
+                const SizedBox(height: 10),
+                const Center(
                   child: AdminButton(radius: 30, vPadding: 6, text: 'Details'),
                 ),
               ],
@@ -134,12 +134,12 @@ class EmployeItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(key, size: 18),
-          SizedBox(width: 6),
+          const SizedBox(width: 6),
           Expanded(
             child: Text(
               value,
               maxLines: 2,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
             ),
           ),
         ],

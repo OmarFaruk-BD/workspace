@@ -38,17 +38,17 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdminAppBar(title: 'Shop Visit Detail'),
+      appBar: const AdminAppBar(title: 'Shop Visit Detail'),
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             Image.memory(
               base64Decode(widget.shopVisit?.svAttachment ?? ''),
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -66,10 +66,10 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
                 spacing: 4,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: Text('Shop Visit Details')),
+                  const Center(child: Text('Shop Visit Details')),
                   Text(
                     'Title: ${widget.shopVisit?.svTitle ?? ''}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   Text('Description: ${widget.shopVisit?.svDescription ?? ''}'),
                   Text('Date: ${widget.shopVisit?.svDate ?? ''}'),
@@ -79,7 +79,7 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             if (widget.shopVisit?.task != null)
               Container(
                 padding: const EdgeInsets.all(20),
@@ -98,10 +98,10 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
                   spacing: 4,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(child: Text('Shop Visit on Task')),
+                    const Center(child: Text('Shop Visit on Task')),
                     Text(
                       'Title: ${widget.shopVisit?.task?.title ?? ''}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -139,26 +139,26 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
                   spacing: 4,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(child: Text('Management Comments')),
+                    const Center(child: Text('Management Comments')),
                     Text(
                       shopVisit?.task?.comments ?? '',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
-            SizedBox(height: 50),
-            Text(
+            const SizedBox(height: 50),
+            const Text(
               'Add Your Comments',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             AppTextField(
               controller: _commentTEC,
               hintText: 'Write a comment',
               maxLine: 3,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             AdminButton(
               text: 'Add Comment',
               onTap: _addComment,

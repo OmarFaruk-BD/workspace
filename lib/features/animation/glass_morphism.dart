@@ -9,7 +9,7 @@ class BackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..shader = LinearGradient(
+      ..shader = const LinearGradient(
         colors: [Colors.purple, Colors.indigo, Colors.blueAccent],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -103,16 +103,16 @@ class GlassMorphism extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple.shade900,
-      body: Stack(
+      body: const Stack(
         children: [
-          const Positioned.fill(child: AnimatedBackground()),
+          Positioned.fill(child: AnimatedBackground()),
           Center(
             child: GlassContainer(
               width: 300,
               height: 200,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.cloud, size: 50, color: Colors.white),
                   SizedBox(height: 10),
                   Text(

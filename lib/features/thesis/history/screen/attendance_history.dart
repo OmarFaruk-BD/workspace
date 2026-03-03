@@ -37,14 +37,14 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
             BlocBuilder<AttendanceCubit, AttendanceState>(
               builder: (context, state) {
                 return Column(
                   children: [
-                    if (state.isLoading) CircularProgressIndicator(),
+                    if (state.isLoading) const CircularProgressIndicator(),
                     ...List.generate(state.attendanceHistoryList.length, (
                       index,
                     ) {

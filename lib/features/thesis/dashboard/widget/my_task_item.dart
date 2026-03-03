@@ -12,7 +12,7 @@ class MyTaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 22),
+      padding: const EdgeInsets.only(bottom: 22),
       child: InkWell(
         onTap: () {
           AppNavigator.pushTo(
@@ -21,7 +21,7 @@ class MyTaskItem extends StatelessWidget {
           ).then((_) => onBack?.call());
         },
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -36,18 +36,18 @@ class MyTaskItem extends StatelessWidget {
           child: ListTile(
             title: Text(
               task.title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   task.description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Expanded(child: Text('Priority: ${task.priority}')),
@@ -55,15 +55,15 @@ class MyTaskItem extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Expanded(child: Text('Schedule: ${task.comments}')),
                     Expanded(child: Text('Status: ${task.status}')),
                   ],
                 ),
-                SizedBox(height: 10),
-                Center(
+                const SizedBox(height: 10),
+                const Center(
                   child: AppButton(
                     radius: 50,
                     vPadding: 6,

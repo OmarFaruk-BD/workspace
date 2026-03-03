@@ -25,7 +25,7 @@ class ChipItem extends StatelessWidget {
             color: Colors.grey.shade200,
             border:
                 isSelected
-                    ? Border(bottom: BorderSide(color: AppColors.red, width: 4))
+                    ? const Border(bottom: BorderSide(color: AppColors.red, width: 4))
                     : null,
           ),
           child: Text(

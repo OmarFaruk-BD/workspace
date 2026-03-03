@@ -66,11 +66,11 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Emergency Request Details'),
+        appBar: const CustomAppBar(title: 'Emergency Request Details'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -78,7 +78,7 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                   child: ListTile(
                     title: Text(
                       'Title: ${request?.title ?? ''}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -86,41 +86,41 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(request?.content ?? ''),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text('Priority: ${request?.priority ?? ''}'),
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
                         Text('Date: ${request?.createdAt ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 35),
-                Text(
+                const SizedBox(height: 35),
+                const Text(
                   'Edit Emergency Request',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
-                Text('Emergency Request Title'),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
+                const Text('Emergency Request Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter request title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Emergency Request Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Emergency Request Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter emergency description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Emergency Request Priority'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Emergency Request Priority'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _priority),
@@ -137,19 +137,19 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Update Notification',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _editNotification,
                 ),
-                SizedBox(height: 45),
-                Text(
+                const SizedBox(height: 45),
+                const Text(
                   'Delete Notification',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 AppButton(
                   text: 'Delete Notification',
                   isLoading: _isLoading2,
@@ -166,7 +166,7 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

@@ -28,8 +28,8 @@ class DailyReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      margin: EdgeInsets.only(bottom: 25),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.only(bottom: 25),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -48,15 +48,15 @@ class DailyReport extends StatelessWidget {
           Center(
             child: Text(
               '$title Report',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             '$title Attendance Report',
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SizedBox(
             height: MediaQuery.of(context).size.width * 0.4,
             child: Row(
@@ -64,12 +64,12 @@ class DailyReport extends StatelessWidget {
                 Expanded(
                   child: LineChart(
                     LineChartData(
-                      gridData: FlGridData(show: true),
+                      gridData: const FlGridData(show: true),
                       titlesData: FlTitlesData(
-                        topTitles: AxisTitles(
+                        topTitles: const AxisTitles(
                           sideTitles: SideTitles(showTitles: false),
                         ),
-                        rightTitles: AxisTitles(
+                        rightTitles: const AxisTitles(
                           sideTitles: SideTitles(showTitles: false),
                         ),
                         leftTitles: AxisTitles(
@@ -115,7 +115,7 @@ class DailyReport extends StatelessWidget {
                           barWidth: 2,
                           isCurved: true,
                           color: Colors.blue,
-                          dotData: FlDotData(show: true),
+                          dotData: const FlDotData(show: true),
                           spots: getSpots,
                           // spots: const [
                           //   FlSpot(0, 8.5),
@@ -139,12 +139,12 @@ class DailyReport extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Text(
             '$title Task Completion',
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SizedBox(
             height: MediaQuery.of(context).size.width * 0.5,
             child: Row(
@@ -179,8 +179,8 @@ class DailyReport extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Wrap(
+                      const SizedBox(height: 10),
+                      const Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           ColorItem(title: 'Completed', color: Colors.green),
@@ -214,9 +214,9 @@ class ColorItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(height: 8, width: 8, color: color),
-        SizedBox(width: 5),
-        Text(title, style: TextStyle(fontSize: 10)),
-        SizedBox(width: 15),
+        const SizedBox(width: 5),
+        Text(title, style: const TextStyle(fontSize: 10)),
+        const SizedBox(width: 15),
       ],
     );
   }

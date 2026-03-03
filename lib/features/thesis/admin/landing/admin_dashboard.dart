@@ -34,26 +34,26 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdminAppBar(title: 'Manager Dashboard', hasBackButton: false),
+      appBar: const AdminAppBar(title: 'Manager Dashboard', hasBackButton: false),
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           SectionWidget(
             title: 'Employee Related Actions',
             children: [
               ActionButton(
                 text: 'Add Employee',
                 onTap: () {
-                  AppNavigator.push(context, AddEmployeePage());
+                  AppNavigator.push(context, const AddEmployeePage());
                 },
               ),
               ActionButton(
                 text: 'Employee List',
-                onTap: () => AppNavigator.push(context, EmployeeListPage()),
+                onTap: () => AppNavigator.push(context, const EmployeeListPage()),
               ),
               ActionButton(
                 text: 'Manager List',
-                onTap: () => AppNavigator.push(context, ManagerListPage()),
+                onTap: () => AppNavigator.push(context, const ManagerListPage()),
               ),
             ],
           ),
@@ -244,12 +244,12 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: AdminButton(text: 'Sign Out', onTap: _signOut),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );

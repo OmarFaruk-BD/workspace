@@ -12,12 +12,12 @@ class AvailableItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         color: AppColors.grey,
         borderRadius: BorderRadius.circular(8),
-        border: Border(bottom: BorderSide(color: AppColors.grey, width: 3)),
+        border: const Border(bottom: BorderSide(color: AppColors.grey, width: 3)),
       ),
       child: Row(
         children: [
@@ -33,7 +33,7 @@ class AvailableItem extends StatelessWidget {
               children: [
                 Text(
                   day.day ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 0.8,
                     fontSize: 20,
                     color: AppColors.white,
@@ -42,19 +42,19 @@ class AvailableItem extends StatelessWidget {
                 ),
                 Text(
                   day.weekday ?? '',
-                  style: TextStyle(color: AppColors.white),
+                  style: const TextStyle(color: AppColors.white),
                 ),
               ],
             ),
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   day.date ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.black,
                     fontWeight: FontWeight.w600,
                   ),
@@ -69,7 +69,7 @@ class AvailableItem extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           AppButton(
             text: 'Apply',
             vPadding: 8,
@@ -81,7 +81,7 @@ class AvailableItem extends StatelessWidget {
                 AppSnackBar.show(context, 'No leave available.');
                 return;
               }
-              AppNavigator.push(context, LeaveApplyPage());
+              AppNavigator.push(context, const LeaveApplyPage());
             },
           ),
         ],

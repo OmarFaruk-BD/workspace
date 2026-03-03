@@ -30,7 +30,7 @@ class _CardFlipCarouselState extends State<CardFlipCarousel> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        title: Text('3D Card Flip Carousel', style: TextStyle(color: Colors.white)),
+        title: const Text('3D Card Flip Carousel', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.teal,
       ),
       body: PageView.builder(
@@ -64,23 +64,23 @@ class _CardFlipCarouselState extends State<CardFlipCarousel> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 120),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 240, 255, 230),
+        color: const Color.fromARGB(255, 240, 255, 230),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.4),
             blurRadius: 40,
-            offset: Offset(5, 5),
+            offset: const Offset(5, 5),
           ),
         ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(item["icon"]!, style: TextStyle(fontSize: 140)),
-          SizedBox(height: 20),
-          Text(item["title"]!, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          SizedBox(height: 10),
+          Text(item["icon"]!, style: const TextStyle(fontSize: 140)),
+          const SizedBox(height: 20),
+          Text(item["title"]!, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 10),
           Text(item["price"]!, style: TextStyle(fontSize: 18, color: Colors.grey.shade700)),
         ],
       ),

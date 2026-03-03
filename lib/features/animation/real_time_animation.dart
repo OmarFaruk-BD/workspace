@@ -31,7 +31,7 @@ class _RealTimeChartState extends State<RealTimeChart> with SingleTickerProvider
       curve: Curves.easeInOut,
     );
 
-    _timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       _addDataPoint();
     });
   }
@@ -159,9 +159,9 @@ class LineChartPainter extends CustomPainter {
       }
     }
 
-    final double maxValue = 220.0;
-    final double minValue = 0.0;
-    final double range = maxValue - minValue;
+    const double maxValue = 220.0;
+    const double minValue = 0.0;
+    const double range = maxValue - minValue;
     final double dx = size.width / (points.length > 1 ? points.length - 1 : 1);
 
     final Path path = Path();

@@ -51,8 +51,8 @@ class PunchButton extends StatelessWidget {
                     ),
                   ),
                   if (state.punchedIn == true) ...[
-                    SizedBox(height: 25),
-                    DutyLocation(),
+                    const SizedBox(height: 25),
+                    const DutyLocation(),
                   ],
                 ],
               ),

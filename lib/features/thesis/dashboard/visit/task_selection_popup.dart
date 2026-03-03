@@ -128,7 +128,7 @@ class _PopupItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15),
       child: InkWell(
         onTap: onSelected,
         child: Card(
@@ -136,30 +136,30 @@ class _PopupItem extends StatelessWidget {
           child: ListTile(
             title: Text(
               task.title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   'Description: ${task.description}',
                   maxLines: 2,
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
                 if (task.client.isNotEmpty)
                   Text(
                     'Client: ${task.client}',
                     maxLines: 2,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   ),
                 if (task.amount.isNotEmpty)
                   Text(
                     'Amount: ${task.amount}',
                     maxLines: 2,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
               ],
             ),
           ),

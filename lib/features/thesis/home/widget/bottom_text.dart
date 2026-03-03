@@ -19,25 +19,25 @@ class BottomSection extends StatelessWidget {
           right: 0,
           bottom: 30,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 if (state.punchedIn != true) ...[
-                  CommonText(
+                  const CommonText(
                     'How to work',
                     fontSize: 18,
                     color: AppColors.black,
                     fontWeight: FontWeight.w600,
                   ),
-                  CommonText(
+                  const CommonText(
                     'The easiest way to track attendance and time for your mobile employees. Seamlessly track attendance and retrieve details of location and time in real-time.',
                     fontSize: 12,
                     color: AppColors.grey,
                     textAlign: TextAlign.center,
                     fontWeight: FontWeight.w500,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
                 if (state.punchedIn == true) ...[
                   AppButton(
@@ -45,7 +45,7 @@ class BottomSection extends StatelessWidget {
                     btnColor: Colors.white,
                     textColor: AppColors.red,
                     onTap: () {
-                      AppNavigator.push(context, LandingPage(index: 1));
+                      AppNavigator.push(context, const LandingPage(index: 1));
                     },
                   ),
                 ],

@@ -88,7 +88,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 onTap: _userLogin,
               ),
               const SizedBox(height: 40),
-              Text(
+              const Text(
                 'By signing in, you agree to our Terms of Use and Privacy Policy',
                 textAlign: TextAlign.center,
                 style: AppStyles.mediumGrey,

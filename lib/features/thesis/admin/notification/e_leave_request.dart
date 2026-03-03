@@ -84,20 +84,20 @@ class _ELeaveRequestState extends State<ELeaveRequest> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
           LoadingOrEmptyText(
             isLoading: isLoading,
             isEmpty: leaveRequestList.isEmpty,
             emptyText: 'No leave requests found.',
           ),
-          Text(
+          const Text(
             'Upcoming Leave Requests',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (todayList.isEmpty && isLoading == false)
             const Text('No leave requests found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(todayList.length, (index) {
             return LeaveRequestItem(
               data: todayList[index],
@@ -105,13 +105,13 @@ class _ELeaveRequestState extends State<ELeaveRequest> {
               onEdit: () => getNtifications(),
             );
           }),
-          Text(
+          const Text(
             'Previous Leave Requests',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (previousList.isEmpty && isLoading == false)
             const Text('No leave requests found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(previousList.length, (index) {
             return LeaveRequestItem(
               isPrevious: true,
@@ -143,7 +143,7 @@ class LeaveRequestItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
           AppNavigator.pushTo(
@@ -152,7 +152,7 @@ class LeaveRequestItem extends StatelessWidget {
           ).then((_) => onEdit?.call());
         },
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -174,23 +174,23 @@ class LeaveRequestItem extends StatelessWidget {
                   children: [
                     Text(
                       data.title ?? '',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     Text(
                       data.description ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       'From: ${data.fromDate ?? ''}\n To: ${data.toDate ?? ''}',
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       'Status: ${data.status ?? ''}',
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),

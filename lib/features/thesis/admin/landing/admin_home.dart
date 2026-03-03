@@ -181,30 +181,30 @@ class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AdminAppBar(title: 'WorkSync', hasBackButton: false),
+      appBar: const AdminAppBar(title: 'WorkSync', hasBackButton: false),
       body: ListView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         children: [
           DailyReport(
             title: 'Daily',
             pendingCount: dailyRatio['a'] ?? 30,
             progressCount: dailyRatio['b'] ?? 40,
             completeCount: dailyRatio['c'] ?? 30,
-            timeList: [9.5, 8.7, 9.0, 9.2, 9.5, 8.9, 9.3, 9.1, 8.8, 9.4],
+            timeList: const [9.5, 8.7, 9.0, 9.2, 9.5, 8.9, 9.3, 9.1, 8.8, 9.4],
           ),
           DailyReport(
             title: 'Weekly',
             pendingCount: weeklyRatio['a'] ?? 30,
             progressCount: weeklyRatio['b'] ?? 40,
             completeCount: weeklyRatio['c'] ?? 30,
-            timeList: [9.0, 9.2, 8.5, 8.7, 9.3, 9.1, 9.5, 8.9, 8.8, 9.4],
+            timeList: const [9.0, 9.2, 8.5, 8.7, 9.3, 9.1, 9.5, 8.9, 8.8, 9.4],
           ),
           DailyReport(
             title: 'Monthly',
             pendingCount: monthlyRatio['a'] ?? 30,
             progressCount: monthlyRatio['b'] ?? 40,
             completeCount: monthlyRatio['c'] ?? 30,
-            timeList: [9.1, 8.8, 9.4, 8.5, 9.0, 8.7, 9.2, 9.5, 8.9, 8.5],
+            timeList: const [9.1, 8.8, 9.4, 8.5, 9.0, 8.7, 9.2, 9.5, 8.9, 8.5],
           ),
         ],
       ),

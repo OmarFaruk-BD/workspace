@@ -73,17 +73,17 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
           child: Form(
             key: _formKey,
             child: ListView(
-              padding: EdgeInsets.all(25),
+              padding: const EdgeInsets.all(25),
               children: [
-                Text('Name'),
+                const Text('Name'),
                 const SizedBox(height: 8),
                 AppTextField(
                   controller: _nameTEC,
                   hintText: 'Enter Employee Name',
                   validator: _validator.validateName,
                 ),
-                SizedBox(height: 20),
-                Text('Email'),
+                const SizedBox(height: 20),
+                const Text('Email'),
                 const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
@@ -91,8 +91,8 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                   hintText: 'Enter Employee Email',
                   validator: _validator.validateEmail,
                 ),
-                SizedBox(height: 20),
-                Text('Password'),
+                const SizedBox(height: 20),
+                const Text('Password'),
                 const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
@@ -100,16 +100,16 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                   hintText: 'Enter Employee Password',
                   validator: _validator.validatePassword,
                 ),
-                SizedBox(height: 20),
-                Text('Position'),
+                const SizedBox(height: 20),
+                const Text('Position'),
                 const SizedBox(height: 8),
                 AppTextField(
                   controller: _positionTEC,
                   hintText: 'Enter Employee Position',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Phone No'),
+                const SizedBox(height: 20),
+                const Text('Phone No'),
                 const SizedBox(height: 8),
                 AppTextField(
                   controller: _phoneTEC,
@@ -117,16 +117,16 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                   validator: _validator.validatePhoneNo,
                   textInputType: TextInputType.phone,
                 ),
-                SizedBox(height: 20),
-                Text('Department'),
+                const SizedBox(height: 20),
+                const Text('Department'),
                 const SizedBox(height: 8),
                 AppTextField(
                   controller: _departmentTEC,
                   hintText: 'Enter Employee Department',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('User Role'),
+                const SizedBox(height: 20),
+                const Text('User Role'),
                 const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
@@ -135,7 +135,7 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                   onTap: () {
                     AppPopup.showAnimated(
                       child: ItemSelectionPopUp(
-                        list: ['Admin', 'Employee'],
+                        list: const ['Admin', 'Employee'],
                         onSelected: (item) {
                           role = item ?? 'Employee';
                           setState(() {});
@@ -146,8 +146,8 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                     );
                   },
                 ),
-                SizedBox(height: 20),
-                Text('User Image'),
+                const SizedBox(height: 20),
+                const Text('User Image'),
                 const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
@@ -188,7 +188,7 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                         right: 0,
                         child: IconButton(
                           onPressed: () => setState(() => _imageFile = null),
-                          icon: Icon(Icons.delete, color: Colors.red),
+                          icon: const Icon(Icons.delete, color: Colors.red),
                         ),
                       ),
                     ],

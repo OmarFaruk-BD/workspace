@@ -78,20 +78,20 @@ class _EmployeeShopVisitListState extends State<EmployeeShopVisitList> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
           LoadingOrEmptyText(
             isLoading: isLoading,
             isEmpty: shopVisitList.isEmpty,
             emptyText: 'No shop visit found.',
           ),
-          Text(
+          const Text(
             'This Month Shop Visits',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (thisMonthList.isEmpty && isLoading == false)
             const Text('No shop visit found this month'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(thisMonthList.length, (index) {
             return EShopVisitItem(
               data: thisMonthList[index],
@@ -99,13 +99,13 @@ class _EmployeeShopVisitListState extends State<EmployeeShopVisitList> {
               onEdit: () => getShopVisitList(),
             );
           }),
-          Text(
+          const Text(
             'Previous Shop Visits',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (previousList.isEmpty && isLoading == false)
             const Text('No shop visit found previously'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(previousList.length, (index) {
             return EShopVisitItem(
               data: previousList[index],
@@ -133,7 +133,7 @@ class EShopVisitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
           AppNavigator.pushTo(
@@ -142,7 +142,7 @@ class EShopVisitItem extends StatelessWidget {
           );
         },
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -178,43 +178,43 @@ class EShopVisitItem extends StatelessWidget {
                       children: [
                         Text(
                           data.svTitle ?? '',
-                          style: TextStyle(fontWeight: FontWeight.w600),
+                          style: const TextStyle(fontWeight: FontWeight.w600),
                         ),
                         Text(
                           data.svDescription ?? '',
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: Colors.grey),
                         ),
                         if (data.svClient != null && data.svClient!.isNotEmpty)
                           Text(
                             'Client: ${data.svClient ?? ''}',
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                         if (data.svAmount != null && data.svAmount!.isNotEmpty)
                           Text(
                             'Amount: ${data.svAmount ?? ''}',
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
 
                         Text(
                           'Shop Visit Type: ${data.svType ?? ''}',
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: Colors.grey),
                         ),
 
                         Text(
                           'Date: ${data.svDate ?? ''}',
-                          style: TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   AppNavigator.pushTo(
@@ -222,7 +222,7 @@ class EShopVisitItem extends StatelessWidget {
                     EShopVisitDetails(shopVisit: data, user: assignedTo),
                   );
                 },
-                child: Text('Details'),
+                child: const Text('Details'),
               ),
             ],
           ),

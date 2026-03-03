@@ -52,7 +52,7 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
           Stack(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 50),
+                margin: const EdgeInsets.only(bottom: 50),
                 height: MediaQuery.of(context).size.height * 0.18,
                 color: AppColors.secondary,
               ),
@@ -64,7 +64,7 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
                   child: Container(
                     width: 150,
                     height: 150,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(150),
@@ -76,21 +76,21 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
                               base64Decode(user?.imageUrl ?? ''),
                             ),
                           )
-                        : AppCachedImage(AppImages.demoAvaterURL, radius: 100),
+                        : const AppCachedImage(AppImages.demoAvaterURL, radius: 100),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: Text(
               user?.name ?? '',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
           Center(child: Text(user?.position ?? 'N/A')),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           _buildItem('Name', user?.name ?? 'N/A'),
           _buildDivider(),
           _buildItem('Email', user?.email ?? 'N/A'),
@@ -117,10 +117,10 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
           _buildDivider(),
           _buildItem('Department', user?.department ?? 'N/A'),
           _buildDivider(),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Row(
             children: [
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: AdminButton(
                   text: 'Edit Profile',
@@ -132,13 +132,13 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
                   },
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: AdminButton(
                   text: 'Delete Profile',
                   isLoading: isDeleting,
                   onTap: () async {
-                    final text =
+                    const text =
                         'Are you sure you want to delete this profile?';
                     await showDialog(
                       context: context,
@@ -153,7 +153,7 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
                   },
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
             ],
           ),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 20),
@@ -178,7 +178,7 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
       height: 1,
       width: double.maxFinite,
       color: AppColors.grey,
-      margin: EdgeInsets.symmetric(horizontal: 40),
+      margin: const EdgeInsets.symmetric(horizontal: 40),
     );
   }
 
@@ -188,8 +188,8 @@ class _ManagerDetailPageState extends State<ManagerDetailPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(key, style: TextStyle(color: AppColors.grey)),
-          Text(value, style: TextStyle(color: AppColors.grey)),
+          Text(key, style: const TextStyle(color: AppColors.grey)),
+          Text(value, style: const TextStyle(color: AppColors.grey)),
         ],
       ),
     );

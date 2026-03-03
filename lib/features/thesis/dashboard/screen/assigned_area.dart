@@ -36,7 +36,7 @@ class _MyAssignedAreaState extends State<MyAssignedArea> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Assigned Area'),
+      appBar: const CustomAppBar(title: 'My Assigned Area'),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -92,13 +92,13 @@ class _MyAssignedAreaItemState extends State<MyAssignedAreaItem> {
         child: ListTile(
           title: Text(
             address ?? 'My Assigned Area',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Area Range: ${area?.radius ?? ''} km'),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
                   Expanded(child: Text('Start Time: ${area?.start ?? ''}')),
@@ -121,7 +121,7 @@ class _MyAssignedAreaItemState extends State<MyAssignedAreaItem> {
                   ),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text(
                 'Created At: ${area?.date?.toDateString('EEE, MMM dd yyyy')}',
               ),

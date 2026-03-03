@@ -44,7 +44,7 @@ class TimeWidget extends StatelessWidget {
                     const SizedBox(height: 20),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.2,
-                      child: DashboardMapWidget(),
+                      child: const DashboardMapWidget(),
                     ),
                   ],
                 ),

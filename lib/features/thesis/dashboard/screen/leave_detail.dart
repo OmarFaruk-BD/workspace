@@ -46,7 +46,7 @@ class _LeaveDetailState extends State<LeaveDetail> {
         padding: const EdgeInsets.all(24),
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(8),
@@ -60,12 +60,12 @@ class _LeaveDetailState extends State<LeaveDetail> {
                   children: [
                     Text(
                       leave?.leaveType ?? '',
-                      style: TextStyle(color: AppColors.green),
+                      style: const TextStyle(color: AppColors.green),
                     ),
                     Text('${leave?.dayCount ?? ''} Day'),
                   ],
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Container(
                   width: double.maxFinite,
                   padding: const EdgeInsets.symmetric(
@@ -79,30 +79,30 @@ class _LeaveDetailState extends State<LeaveDetail> {
                   child: Center(
                     child: Text(
                       leave?.status ?? '',
-                      style: TextStyle(color: AppColors.green),
+                      style: const TextStyle(color: AppColors.green),
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Container(
                   height: 2,
                   width: double.infinity,
                   color: AppColors.grey,
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text(leave?.reason ?? ''),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text('Start : ${leave?.fromDate ?? ''}'),
                 Text('End : ${leave?.toDate ?? ''}'),
               ],
             ),
           ),
-          SizedBox(height: 25),
-          Text(
+          const SizedBox(height: 25),
+          const Text(
             'Emergency Contact',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(leave?.emergencyContact ?? ''),
         ],
       ),

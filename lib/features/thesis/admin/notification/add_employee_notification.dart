@@ -45,32 +45,32 @@ class _AddEmployeeNotificationPageState
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: AdminAppBar(title: 'Add Notification'),
+        appBar: const AdminAppBar(title: 'Add Notification'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Notification Title'),
-                SizedBox(height: 8),
+                const Text('Notification Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter notification title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Notification Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Notification Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter notification description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Notification Priority'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Notification Priority'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _priority),
@@ -87,14 +87,14 @@ class _AddEmployeeNotificationPageState
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Create Notification',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _createNotification,
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

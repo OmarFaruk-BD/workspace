@@ -39,15 +39,15 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
         body: ListView(
           padding: const EdgeInsets.all(24),
           children: [
-            Text('Leave '),
-            SizedBox(height: 15),
+            const Text('Leave '),
+            const SizedBox(height: 15),
             Row(
               children: [
                 _buildButton(
                   title: 'Full day',
                   isSelected: isFullDay,
                   onTap: () => setState(() => isFullDay = true),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(40),
                     bottomLeft: Radius.circular(40),
                   ),
@@ -56,21 +56,21 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
                   title: 'Half Day',
                   isSelected: !isFullDay,
                   onTap: () => setState(() => isFullDay = false),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(40),
                     bottomRight: Radius.circular(40),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             ItemSelectionField(
               text: leaveType ?? 'Select leave type',
               onTap: () {
                 AppPopup.showAnimated(
                   context: context,
                   child: ItemSelectionPopUp(
-                    list: [
+                    list: const [
                       'Sick Leave',
                       'Casual Leave',
                       'Vacation Leave',
@@ -82,7 +82,7 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
                 );
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Flexible(
@@ -101,7 +101,7 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
                     },
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Flexible(
                   child: ItemSelectionField(
                     icon: AppImages.clock,
@@ -120,7 +120,7 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             AppTextField(
               controller: reasonTEC,
@@ -128,24 +128,24 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
               maxLine: 5,
               radius: 8,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Emergency Contact Number ',
               style: TextStyle(color: AppColors.grey),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             AppTextField(
               controller: phoneTEC,
               hintText: 'Emergency Contact Number',
               radius: 8,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             AppButton(
               text: 'SUBMIT',
               isLoading: isLoading,
               onTap: _requestLeave,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
           ],
         ),
       ),

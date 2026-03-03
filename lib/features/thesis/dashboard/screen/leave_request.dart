@@ -37,7 +37,7 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
             onBackTap: () => Navigator.pop(context),
           ),
           body: SingleChildScrollView(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             child: Column(
               children: [
                 SfDateRangePicker(
@@ -48,10 +48,10 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
                   startRangeSelectionColor: AppColors.red,
                   selectionMode: DateRangePickerSelectionMode.range,
                   rangeSelectionColor: AppColors.red.withAlpha(40),
-                  headerStyle: DateRangePickerHeaderStyle(
+                  headerStyle: const DateRangePickerHeaderStyle(
                     backgroundColor: AppColors.white,
                   ),
-                  monthViewSettings: DateRangePickerMonthViewSettings(
+                  monthViewSettings: const DateRangePickerMonthViewSettings(
                     showTrailingAndLeadingDates: true,
                   ),
                   initialSelectedRange: PickerDateRange(
@@ -74,7 +74,7 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 Row(
                   children: [
                     Expanded(
@@ -83,7 +83,7 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.grey.shade200,
-                          border: Border(
+                          border: const Border(
                             bottom: BorderSide(
                               color: AppColors.green,
                               width: 4,
@@ -93,12 +93,12 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
                         child: Center(
                           child: Text(
                             'Available : ${state.leaveListModel?.availableTotal ?? 0}',
-                            style: TextStyle(color: AppColors.green),
+                            style: const TextStyle(color: AppColors.green),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: Container(
                         height: 40,
@@ -109,15 +109,15 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
                         child: Center(
                           child: Text(
                             'Taken : ${state.leaveListModel?.takenTotal ?? 0}',
-                            style: TextStyle(color: AppColors.grey),
+                            style: const TextStyle(color: AppColors.grey),
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 25),
-                if (state.isLoading == true) CircularProgressIndicator(),
+                const SizedBox(height: 25),
+                if (state.isLoading == true) const CircularProgressIndicator(),
                 if (state.leaveListModel?.days?.isNotEmpty == true)
                   ...List.generate(state.leaveListModel!.days!.length, (index) {
                     final data = state.leaveListModel!.days![index];

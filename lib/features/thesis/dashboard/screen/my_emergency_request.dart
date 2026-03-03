@@ -85,20 +85,20 @@ class _MyEmergencyRequestState extends State<MyEmergencyRequest> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
           LoadingOrEmptyText(
             isLoading: isLoading,
             isEmpty: notifications.isEmpty,
             emptyText: 'No requests found.',
           ),
-          Text(
+          const Text(
             'Today My Emergency Requests',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (todayList.isEmpty && isLoading == false)
             const Text('No requests found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(todayList.length, (index) {
             return RequestItem(
               data: todayList[index],
@@ -106,13 +106,13 @@ class _MyEmergencyRequestState extends State<MyEmergencyRequest> {
               onEdit: () => getNtifications(),
             );
           }),
-          Text(
+          const Text(
             'Previous Emergency Requests',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (previousList.isEmpty && isLoading == false)
             const Text('No requests found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(previousList.length, (index) {
             return RequestItem(
               data: previousList[index],
@@ -140,7 +140,7 @@ class RequestItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () => AppNavigator.pushTo(
           context,
@@ -148,7 +148,7 @@ class RequestItem extends StatelessWidget {
         ).then((_) => onEdit?.call()),
 
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -170,18 +170,18 @@ class RequestItem extends StatelessWidget {
                   children: [
                     Text(
                       data.title ?? '',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     Text(
                       data.content ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       data.createdAt ?? '',
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),

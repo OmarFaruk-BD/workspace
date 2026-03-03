@@ -35,12 +35,12 @@ class _MyTaskListState extends State<MyTaskList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Task List'),
+      appBar: const CustomAppBar(title: 'My Task List'),
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: fetchEmployeeTask,
           child: ListView(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             children: [
               LoadingOrEmptyText(
                 isLoading: _isLoading,
@@ -86,12 +86,12 @@ class _MyTaskListV2State extends State<MyTaskListV2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Task List', hasBackButton: false),
+      appBar: const CustomAppBar(title: 'My Task List', hasBackButton: false),
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: fetchEmployeeTask,
           child: ListView(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             children: [
               LoadingOrEmptyText(
                 isLoading: _isLoading,

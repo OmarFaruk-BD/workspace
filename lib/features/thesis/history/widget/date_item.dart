@@ -21,12 +21,12 @@ class DateItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         color: AppColors.grey.withAlpha(30),
         borderRadius: BorderRadius.circular(8),
-        border: Border(bottom: BorderSide(color: AppColors.grey, width: 3)),
+        border: const Border(bottom: BorderSide(color: AppColors.grey, width: 3)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,14 +43,14 @@ class DateItem extends StatelessWidget {
               children: [
                 Text(
                   day,
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 0.8,
                     fontSize: 20,
                     color: AppColors.white,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Text(dayName, style: TextStyle(color: AppColors.white)),
+                Text(dayName, style: const TextStyle(color: AppColors.white)),
               ],
             ),
           ),
@@ -58,13 +58,13 @@ class DateItem extends StatelessWidget {
             children: [
               Text(
                 punchIn,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
+              const Text(
                 'Punch In',
                 style: TextStyle(fontSize: 11, color: AppColors.black),
               ),
@@ -74,13 +74,13 @@ class DateItem extends StatelessWidget {
             children: [
               Text(
                 punchOut,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
+              const Text(
                 'Punch Out',
                 style: TextStyle(fontSize: 11, color: AppColors.black),
               ),
@@ -90,14 +90,14 @@ class DateItem extends StatelessWidget {
             children: [
               Text(
                 totalTime,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
 
                   color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
+              const Text(
                 'Total Hours',
                 style: TextStyle(fontSize: 11, color: AppColors.black),
               ),

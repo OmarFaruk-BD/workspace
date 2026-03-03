@@ -67,11 +67,11 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Leave Request Details'),
+        appBar: const CustomAppBar(title: 'Leave Request Details'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -79,7 +79,7 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                   child: ListTile(
                     title: Text(
                       'Title: ${leaveModel?.title ?? ''}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -87,43 +87,43 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(leaveModel?.description ?? ''),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text('From Date: ${leaveModel?.fromDate ?? ''}'),
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
                         Text('To Date: ${leaveModel?.toDate ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text('Status: ${leaveModel?.status ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 35),
-                Text(
+                const SizedBox(height: 35),
+                const Text(
                   'Edit Leave Request',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
-                Text('Leave Request Title'),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
+                const Text('Leave Request Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter request title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Leave Request Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Request Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter leave description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Leave Duration'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Duration'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: _date,
@@ -133,7 +133,7 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                     final dateRange = await showDateRangePicker(
                       context: context,
                       firstDate: DateTime.now(),
-                      lastDate: DateTime.now().add(Duration(days: 365)),
+                      lastDate: DateTime.now().add(const Duration(days: 365)),
                       initialDateRange: DateTimeRange(
                         start: _fromDate ?? DateTime.now(),
                         end: _toDate ?? DateTime.now(),
@@ -148,9 +148,9 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                     }
                   },
                 ),
-                SizedBox(height: 20),
-                Text('Leave Request Type'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Leave Request Type'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _leaveType),
@@ -167,19 +167,19 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Update Leave Request',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _editNotification,
                 ),
-                SizedBox(height: 45),
-                Text(
+                const SizedBox(height: 45),
+                const Text(
                   'Delete Leave Request',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 AppButton(
                   text: 'Delete Leave Request',
                   isLoading: _isLoading2,
@@ -196,7 +196,7 @@ class _EditLeaveRequestState extends State<EditLeaveRequest> {
                     );
                   },
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

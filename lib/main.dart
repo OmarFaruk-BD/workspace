@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             locale: context.locale,
             theme: state.theme,
-            home: OSMPage(),
+            home: const OSMPage(),
           );
         },
       ),

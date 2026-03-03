@@ -55,7 +55,7 @@ class _EAttendanceHistoryState extends State<EAttendanceHistory> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -69,13 +69,13 @@ class _EAttendanceHistoryState extends State<EAttendanceHistory> {
                 todayAttendanceHistory: _todayAttendanceHistory,
               ),
             if (!isLoading && _todayAttendanceHistory != null)
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
             if (!isLoading && _attendanceHistoryList.isNotEmpty)
-              Text(
+              const Text(
                 'Previous Attendance',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             ...List.generate(_attendanceHistoryList.length, (index) {
               final data = _attendanceHistoryList[index];
               return DateItem(
@@ -155,13 +155,13 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
+            const Center(
               child: Text(
                 'Today\'s Attendance',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -170,13 +170,13 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
                     Text(
                       todayAttendanceHistory?.punchIn?.toDateString() ??
                           '--:--',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: AppColors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Punch In',
                       style: TextStyle(fontSize: 11, color: AppColors.black),
                     ),
@@ -187,13 +187,13 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
                     Text(
                       todayAttendanceHistory?.punchOut?.toDateString() ??
                           '--:--',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: AppColors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Punch Out',
                       style: TextStyle(fontSize: 11, color: AppColors.black),
                     ),
@@ -203,13 +203,13 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
                   children: [
                     Text(
                       todayAttendanceHistory?.totalHours ?? '--:--',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: AppColors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Total Hours',
                       style: TextStyle(fontSize: 11, color: AppColors.black),
                     ),
@@ -217,20 +217,20 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
                 ),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             if (address != null)
               Text(
                 'Address: $address',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-            if (address != null) SizedBox(height: 8),
+            if (address != null) const SizedBox(height: 8),
             Text(
               'Date: ${todayAttendanceHistory?.date ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 color: AppColors.black,
                 fontWeight: FontWeight.w600,

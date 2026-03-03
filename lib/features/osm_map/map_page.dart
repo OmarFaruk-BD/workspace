@@ -28,14 +28,14 @@ class _MapPageState extends State<MapPage> {
     await Future.delayed(const Duration(milliseconds: 500));
     await controller.addMarker(
       start,
-      markerIcon: MarkerIcon(
+      markerIcon: const MarkerIcon(
         icon: Icon(Icons.location_pin, color: Colors.green, size: 48),
       ),
     );
 
     await controller.addMarker(
       end,
-      markerIcon: MarkerIcon(
+      markerIcon: const MarkerIcon(
         icon: Icon(Icons.location_pin, color: Colors.blue, size: 48),
       ),
     );
@@ -58,14 +58,14 @@ class _MapPageState extends State<MapPage> {
       start,
       end,
       roadType: RoadType.car,
-      roadOption: RoadOption(roadColor: Colors.red, roadWidth: 6),
+      roadOption: const RoadOption(roadColor: Colors.red, roadWidth: 6),
     );
 
     List<GeoPoint> points = roadInfo.route;
 
     await controller.addMarker(
       points.first,
-      markerIcon: MarkerIcon(
+      markerIcon: const MarkerIcon(
         icon: Icon(Icons.directions_car, color: Colors.black, size: 50),
       ),
     );
@@ -97,7 +97,7 @@ class _MapPageState extends State<MapPage> {
             await Future.delayed(const Duration(seconds: 1));
             await _drawRoute();
           },
-          osmOption: OSMOption(
+          osmOption: const OSMOption(
             isPicker: false,
             zoomOption: ZoomOption(
               initZoom: 7,

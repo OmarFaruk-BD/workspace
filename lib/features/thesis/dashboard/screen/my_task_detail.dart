@@ -73,13 +73,13 @@ class _MyTaskDetailState extends State<MyTaskDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Task Detail'),
+      appBar: const CustomAppBar(title: 'My Task Detail'),
       body: ListView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         children: [
           if (user != null) _EmployeItem(user!),
           TaskDetailItem(task: task),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           AppButton(
             text: 'Update Task Status',
             isLoading: _isLoading,
@@ -97,7 +97,7 @@ class _MyTaskDetailState extends State<MyTaskDetail> {
               );
             },
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
         ],
       ),
     );
@@ -111,44 +111,44 @@ class TaskDetailItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15),
       child: Card(
         child: ListTile(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Task Detail:'),
+              const Text('Task Detail:'),
               Text(
                 'Status: ${task.status}',
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: const TextStyle(fontWeight: FontWeight.w600),
               ),
             ],
           ),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 task.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(task.description),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text('Due Date: ${task.dueDate}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Priority: ${task.priority}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Task Type: ${task.taskType}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Schedule: ${task.comments}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Client: ${task.client}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Amount: ${task.amount}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Created At: ${task.createdAt.toDateString()}'),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Updated At: ${task.updatedAt.toDateString()}'),
             ],
           ),
@@ -165,25 +165,25 @@ class _EmployeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15),
       child: Card(
         child: ListTile(
-          title: Text('Assigned To:'),
+          title: const Text('Assigned To:'),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 employee.name ?? '',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   _buildItem(Icons.business_center, '${employee.position}'),
                   _buildItem(Icons.public_outlined, '${employee.department}'),
                 ],
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   _buildItem(Icons.email_outlined, '${employee.email}'),
@@ -203,12 +203,12 @@ class _EmployeItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(key, size: 18),
-          SizedBox(width: 6),
+          const SizedBox(width: 6),
           Expanded(
             child: Text(
               value,
               maxLines: 2,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
             ),
           ),
         ],

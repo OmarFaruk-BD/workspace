@@ -73,11 +73,11 @@ class _EditEmployeeNotificationPageState
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: AdminAppBar(title: 'Notification Details'),
+        appBar: const AdminAppBar(title: 'Notification Details'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -85,7 +85,7 @@ class _EditEmployeeNotificationPageState
                   child: ListTile(
                     title: Text(
                       'Title: ${notification?.title ?? ''}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -93,41 +93,41 @@ class _EditEmployeeNotificationPageState
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(notification?.content ?? ''),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text('Priority: ${notification?.priority ?? ''}'),
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
                         Text('Date: ${notification?.createdAt ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 35),
-                Text(
+                const SizedBox(height: 35),
+                const Text(
                   'Edit Notification',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
-                Text('Notification Title'),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
+                const Text('Notification Title'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _title,
                   hintText: 'Enter notification title',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Notification Description'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Notification Description'),
+                const SizedBox(height: 8),
                 AppTextField(
                   controller: _description,
                   hintText: 'Enter notification description',
                   validator: _validator.validate,
                 ),
-                SizedBox(height: 20),
-                Text('Notification Priority'),
-                SizedBox(height: 8),
+                const SizedBox(height: 20),
+                const Text('Notification Priority'),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _priority),
@@ -144,19 +144,19 @@ class _EditEmployeeNotificationPageState
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AppButton(
                   text: 'Update Notification',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _editNotification,
                 ),
-                SizedBox(height: 45),
-                Text(
+                const SizedBox(height: 45),
+                const Text(
                   'Delete Notification',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 AppButton(
                   text: 'Delete Notification',
                   isLoading: _isLoading2,
@@ -173,7 +173,7 @@ class _EditEmployeeNotificationPageState
                     );
                   },
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

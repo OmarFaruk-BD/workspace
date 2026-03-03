@@ -81,7 +81,7 @@ class MapWidgetState extends State<MapWidget> {
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.4,
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),

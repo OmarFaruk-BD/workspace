@@ -88,19 +88,19 @@ class _EmployeeNotificationListState extends State<EmployeeNotificationList> {
         onBackTap: () => Navigator.pop(context),
       ),
       body: ListView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         children: [
           LoadingOrEmptyText(
             isLoading: isLoading,
             isEmpty: notifications.isEmpty,
             emptyText: 'No notifications found.',
           ),
-          Text(
+          const Text(
             'Today Notifications',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (todayList.isEmpty) const Text('No notifications found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(todayList.length, (index) {
             return NotificationItem(
               data: todayList[index],
@@ -108,12 +108,12 @@ class _EmployeeNotificationListState extends State<EmployeeNotificationList> {
               onEdit: () => getNtifications(),
             );
           }),
-          Text(
+          const Text(
             'Previous Notifications',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           if (previousList.isEmpty) const Text('No notifications found'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ...List.generate(previousList.length, (index) {
             return NotificationItem(
               data: previousList[index],
@@ -141,7 +141,7 @@ class NotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () => AppNavigator.pushTo(
           context,
@@ -151,7 +151,7 @@ class NotificationItem extends StatelessWidget {
           ),
         ).then((_) => onEdit?.call()),
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -173,18 +173,18 @@ class NotificationItem extends StatelessWidget {
                   children: [
                     Text(
                       data.title ?? '',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     Text(
                       data.content ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       data.createdAt ?? '',
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),

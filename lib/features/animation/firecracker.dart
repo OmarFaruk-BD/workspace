@@ -97,11 +97,11 @@ class _FireCrackerAnimationState extends State<FireCrackerAnimation>
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.amber[300],
-                      shadows: [
+                      shadows: const [
                         Shadow(
                           blurRadius: 10,
                           color: Colors.orange,
-                          offset: const Offset(0, 0),
+                          offset: Offset(0, 0),
                         ),
                       ],
                     ),
@@ -170,8 +170,8 @@ class FirecrackerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (progress == 0) return;
 
-    final particleCount = 50;
-    final maxRadius = 150.0;
+    const particleCount = 50;
+    const maxRadius = 150.0;
 
     for (int i = 0; i < particleCount; i++) {
       final angle = (i / particleCount) * 2 * pi;

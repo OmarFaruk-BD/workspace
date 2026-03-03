@@ -72,32 +72,32 @@ class _OSMPageState extends State<OSMPage> {
             'Pick start and end point to go to map page',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (startPoint != null) ...[
             Text(
               'Start: ${startPoint!.latitude}, ${startPoint!.longitude}',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
 
           if (endPoint != null) ...[
             Text(
               'End: ${endPoint!.latitude}, ${endPoint!.longitude}',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
           ElevatedButton(onPressed: _handleTap, child: Text(buttonText)),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton.icon(
             onPressed: () {
               context.read<ThemeCubit>().toggleTheme();
             },
-            icon: Icon(Icons.palette),
-            label: Text('Change Theme'),
+            icon: const Icon(Icons.palette),
+            label: const Text('Change Theme'),
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
         ],
       ),
     );
@@ -137,8 +137,8 @@ class _PickLocationPageState extends State<PickLocationPage> {
             Expanded(
               child: OSMFlutter(
                 controller: controller,
-                osmOption: OSMOption(
-                  zoomOption: const ZoomOption(
+                osmOption: const OSMOption(
+                  zoomOption: ZoomOption(
                     initZoom: 7,
                     minZoomLevel: 3,
                     maxZoomLevel: 18,
@@ -166,14 +166,14 @@ class _PickLocationPageState extends State<PickLocationPage> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      child: Text('Cancel'),
+                      child: const Text('Cancel'),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
                   const SizedBox(width: 20),
                   Expanded(
                     child: ElevatedButton(
-                      child: Text('Pick'),
+                      child: const Text('Pick'),
                       onPressed: () => Navigator.pop(context, pickedPoint),
                     ),
                   ),

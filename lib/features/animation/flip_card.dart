@@ -115,7 +115,7 @@ class _FlipCardScreenState extends State<FlipCardScreen>
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: Colors.black26, blurRadius: 8, spreadRadius: 2),
         ],
       ),

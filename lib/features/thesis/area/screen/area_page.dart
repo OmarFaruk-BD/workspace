@@ -24,13 +24,13 @@ class _AreaPageState extends State<AreaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Area', hasBackButton: false),
+      appBar: const CustomAppBar(title: 'Area', hasBackButton: false),
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Spacer(),
+              const Spacer(),
               Center(
                 child: CommonText(
                   state.time ?? '',
@@ -45,7 +45,7 @@ class _AreaPageState extends State<AreaPage> {
                 fontWeight: FontWeight.w400,
                 textAlign: TextAlign.center,
               ),
-              Spacer(),
+              const Spacer(),
               DottedBorder(
                 options: const RoundedRectDottedBorderOptions(
                   strokeWidth: 1,
@@ -65,11 +65,11 @@ class _AreaPageState extends State<AreaPage> {
                           fit: BoxFit.fitWidth,
                         ),
                       ),
-                      TextSpan(
+                      const TextSpan(
                         text: 'Alert: ',
                         style: TextStyle(fontSize: 16, color: AppColors.red),
                       ),
-                      TextSpan(
+                      const TextSpan(
                         text: 'Don\'t Cross Your Area',
                         style: TextStyle(fontSize: 16, color: AppColors.grey),
                       ),
@@ -77,25 +77,25 @@ class _AreaPageState extends State<AreaPage> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               MapWidget(
                 lat: double.tryParse(state.myArea?.latitude ?? ''),
                 lng: double.tryParse(state.myArea?.longitude ?? ''),
                 radius: double.tryParse(state.myArea?.radius ?? ''),
               ),
-              Spacer(),
+              const Spacer(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   return state.punchedIn != true
                       ? Column(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
+                            const Padding(
+                              padding: EdgeInsets.symmetric(
                                 horizontal: 24,
                               ),
                               child: DutyLocation(),
                             ),
-                            SizedBox(height: 15),
+                            const SizedBox(height: 15),
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 24,
@@ -109,20 +109,20 @@ class _AreaPageState extends State<AreaPage> {
                             ),
                           ],
                         )
-                      : SizedBox();
+                      : const SizedBox();
                 },
               ),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   return state.punchedIn == true
-                      ? Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 24),
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24),
                           child: DutyLocation(),
                         )
-                      : SizedBox();
+                      : const SizedBox();
                 },
               ),
-              Spacer(),
+              const Spacer(),
             ],
           );
         },

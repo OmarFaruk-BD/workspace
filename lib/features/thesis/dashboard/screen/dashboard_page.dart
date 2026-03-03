@@ -33,7 +33,7 @@ class _DashboardPageState extends State<DashboardPage> {
           body: ListView(
             padding: const EdgeInsets.all(0),
             children: [
-              HeaderWidgetV2(),
+              const HeaderWidgetV2(),
               Padding(
                 padding: const EdgeInsets.all(25).copyWith(bottom: 0),
                 child: Row(
@@ -51,7 +51,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       text: 'Attendance\nHistory',
                       icon: AppImages.overview_2,
                       onTap: () =>
-                          AppNavigator.push(context, AttendanceHistoryPage()),
+                          AppNavigator.push(context, const AttendanceHistoryPage()),
                     ),
                   ],
                 ),
@@ -98,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       text: 'My\nNotification',
                       icon: AppImages.overview_2,
                       onTap: () =>
-                          AppNavigator.push(context, NotificationPage()),
+                          AppNavigator.push(context, const NotificationPage()),
                     ),
                   ],
                 ),
@@ -151,7 +151,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
             ],
           ),
         );
@@ -177,14 +177,14 @@ class DashboardItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.only(bottom: 4),
+          padding: const EdgeInsets.only(bottom: 4),
           decoration: BoxDecoration(
             color: AppColors.grey.withAlpha(150),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Container(
             width: double.maxFinite,
-            padding: EdgeInsets.symmetric(vertical: 18),
+            padding: const EdgeInsets.symmetric(vertical: 18),
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(8),
@@ -193,18 +193,18 @@ class DashboardItem extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Color(0xFFFFF2F2),
+                    color: const Color(0xFFFFF2F2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: SvgPicture.asset(icon),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 Text(
                   text,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.black,
                   ),

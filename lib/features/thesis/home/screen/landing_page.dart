@@ -113,7 +113,7 @@ class _LandingPageState extends State<LandingPage> {
             if (isSelected)
               Text(
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   color: AppColors.white,
                   fontWeight: FontWeight.w600,

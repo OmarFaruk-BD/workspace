@@ -57,11 +57,11 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: AdminAppBar(title: 'Leave Request Details'),
+        appBar: const AdminAppBar(title: 'Leave Request Details'),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -69,7 +69,7 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                   child: ListTile(
                     title: Text(
                       'Title: ${leaveModel?.title ?? ''}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -77,25 +77,25 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(leaveModel?.description ?? ''),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text('From Date: ${leaveModel?.fromDate ?? ''}'),
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
                         Text('To Date: ${leaveModel?.toDate ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text('Status: ${leaveModel?.status ?? ''}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 35),
-                Text(
+                const SizedBox(height: 35),
+                const Text(
                   'Update Leave Request Status',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 AppTextField(
                   readOnly: true,
                   controller: TextEditingController(text: _leaveStatus),
@@ -112,19 +112,19 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 AdminButton(
                   text: 'Update Leave Request',
                   isLoading: _isLoading,
                   width: double.maxFinite,
                   onTap: _editNotification,
                 ),
-                SizedBox(height: 45),
-                Text(
+                const SizedBox(height: 45),
+                const Text(
                   'Delete Leave Request',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 AdminButton(
                   text: 'Delete Leave Request',
                   isLoading: _isLoading2,
@@ -141,7 +141,7 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                     );
                   },
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),

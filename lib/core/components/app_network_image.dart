@@ -38,7 +38,7 @@ class AppNetworkImage extends StatelessWidget {
   }
 
   Widget _buildErrorWidget() {
-    return SizedBox(width: width, height: height, child: Icon(Icons.image));
+    return SizedBox(width: width, height: height, child: const Icon(Icons.image));
   }
 }
 

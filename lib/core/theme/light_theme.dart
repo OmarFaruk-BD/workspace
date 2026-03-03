@@ -9,7 +9,7 @@ class LightTheme extends AppTheme {
   @override
   FilledButtonThemeData get filledButtonThemeData => FilledButtonThemeData(
     style: FilledButton.styleFrom(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       textStyle: TextStyles.title,
       backgroundColor: colors.primary,
       foregroundColor: colors.foreground,
@@ -23,7 +23,7 @@ class LightTheme extends AppTheme {
       OutlinedButtonThemeData(
         style:
             FilledButton.styleFrom(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               textStyle: TextStyles.title,
               foregroundColor: colors.primary,
               backgroundColor: colors.background,
@@ -44,7 +44,7 @@ class LightTheme extends AppTheme {
   ElevatedButtonThemeData get elevatedButtonThemeData =>
       ElevatedButtonThemeData(
         style: FilledButton.styleFrom(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           textStyle: TextStyles.title,
           backgroundColor: colors.primary,
           foregroundColor: colors.foreground,

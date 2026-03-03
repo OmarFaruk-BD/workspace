@@ -22,7 +22,7 @@ class SolarSystemPainter extends CustomPainter {
     double sunX = center.dx;
     double sunY = center.dy;
     final Paint sunPaint = Paint()
-      ..shader = RadialGradient(
+      ..shader = const RadialGradient(
         colors: [Colors.yellowAccent, Colors.transparent],
         stops: [0.3, 1.0],
       ).createShader(Rect.fromCircle(center: Offset(sunX, sunY), radius: 90));
@@ -40,7 +40,7 @@ class SolarSystemPainter extends CustomPainter {
     double earthX = center.dx + earthOrbitRadius * cos(time);
     double earthY = center.dy + earthOrbitRadius * sin(time);
     final Paint earthPaint = Paint()
-      ..shader = RadialGradient(
+      ..shader = const RadialGradient(
         colors: [Colors.blueAccent, Colors.transparent],
         stops: [0.5, 1.0],
       ).createShader(Rect.fromCircle(center: Offset(earthX, earthY), radius: 25));
@@ -51,7 +51,7 @@ class SolarSystemPainter extends CustomPainter {
     double moonX = earthX + moonOrbitRadius * cos(time * 2);
     double moonY = earthY + moonOrbitRadius * sin(time * 2);
     final Paint moonPaint = Paint()
-      ..shader = RadialGradient(
+      ..shader = const RadialGradient(
         colors: [Colors.white, Colors.transparent],
         stops: [0.3, 1.0],
       ).createShader(Rect.fromCircle(center: Offset(moonX, moonY), radius: 15));

@@ -27,12 +27,12 @@ class _MultiTickerPageState extends State<MultiTickerPage>
 
     _mainController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
     )..repeat(reverse: true);
 
     _textController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
     )..repeat(reverse: true);
 
     _color = ColorTween(
@@ -41,8 +41,8 @@ class _MultiTickerPageState extends State<MultiTickerPage>
     ).animate(_mainController);
 
     _size = SizeTween(
-      begin: Size(100, 120),
-      end: Size(200, 200),
+      begin: const Size(100, 120),
+      end: const Size(200, 200),
     ).animate(CurvedAnimation(parent: _mainController, curve: Curves.ease));
 
     _radius =
@@ -59,14 +59,14 @@ class _MultiTickerPageState extends State<MultiTickerPage>
     ).animate(_mainController);
 
     _padding = EdgeInsetsTween(
-      begin: EdgeInsets.all(8),
-      end: EdgeInsets.all(32),
+      begin: const EdgeInsets.all(8),
+      end: const EdgeInsets.all(32),
     ).animate(_mainController);
 
     _textStyle =
         TextStyleTween(
-          begin: TextStyle(fontSize: 18, color: Colors.white),
-          end: TextStyle(fontSize: 30, color: Colors.black),
+          begin: const TextStyle(fontSize: 18, color: Colors.white),
+          end: const TextStyle(fontSize: 30, color: Colors.black),
         ).animate(
           CurvedAnimation(parent: _textController, curve: Curves.easeInOut),
         );
