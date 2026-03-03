@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/core/theme/theme_cubit.dart';
-import 'package:workspace/features/osm_map/map_page.dart';
+import 'package:workspace/features/map/map_page.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 
 class OSMPage extends StatefulWidget {
