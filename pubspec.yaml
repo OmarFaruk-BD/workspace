@@ -67,10 +67,11 @@ dependencies:
   webview_flutter: ^4.13.0
   flutter_widget_from_html: ^0.17.1
 
-  #LOCATION
+  #LOCATIONANDMAP
   location: ^8.0.1
   geocoding: ^4.0.0
   geolocator: ^14.0.1
+  widget_to_marker: ^1.0.6
   flutter_timezone: ^4.1.1
   flutter_osm_plugin: ^1.4.3
   google_maps_flutter: ^2.13.1

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:workspace/core/helper/navigation.dart';
+import 'package:widget_to_marker/widget_to_marker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapTapMarkerPage extends StatefulWidget {
@@ -22,18 +24,23 @@ class _MapTapMarkerPageState extends State<MapTapMarkerPage> {
     _mapController = controller;
   }
 
-  void _onMapTapped(LatLng position) {
+  Future<BitmapDescriptor> getCustomMarker() async {
+    const Widget markerWidget = CustomMarkerWidget(text: "Hello Map");
+    final BitmapDescriptor descriptor = await markerWidget.toBitmapDescriptor();
+    return descriptor;
+  }
+
+  void _onMapTapped(LatLng position) async {
+    BitmapDescriptor customIcon = await getCustomMarker();
     setState(() {
       _markers = {
         Marker(
           markerId: const MarkerId('user_marker'),
           position: position,
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-
-          infoWindow: const InfoWindow(
-            title: 'Selected Location',
-            snippet: 'Tap again to change',
-          ),
+          icon: customIcon,
+          onTap: () {
+            AppNavigator.push(context, const DetailPage());
+          },
         ),
       };
     });
@@ -60,5 +67,41 @@ class _MapTapMarkerPageState extends State<MapTapMarkerPage> {
   void dispose() {
     _mapController?.dispose();
     super.dispose();
+  }
+}
+
+class CustomMarkerWidget extends StatelessWidget {
+  final String text;
+
+  const CustomMarkerWidget({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  const DetailPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Detail Page')),
+      body: ListView(children: const [Center(child: Text('Detail Page'))]),
+    );
   }
 }
