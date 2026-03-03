@@ -6,7 +6,7 @@ import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/components/approval_popup.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/admin/task/edit_employee_task.dart';
 import 'package:workspace/features/thesis/admin/service/employee_service.dart';
@@ -73,7 +73,7 @@ class _EmployeeTaskDetailPageState extends State<EmployeeTaskDetailPage> {
           AppButton(
             text: 'Edit Task',
             onTap: () {
-              AppNavigator.pushTo(
+              AppNavigator.push(
                 context,
                 EditEmployeeTask(task: task),
               ).then((_) => geTaskDetail());
@@ -83,18 +83,19 @@ class _EmployeeTaskDetailPageState extends State<EmployeeTaskDetailPage> {
           AppButton(
             text: 'Delete Task',
             isLoading: isLoading,
-            onTap: () {
-              AppPopup.showAnimated(
+            onTap: () async {
+              final result = await AppPopup.show<bool>(
                 context: context,
-                child: ApprovalWidget(
+                widget: const AppAlertDialog(
                   title: 'Delete Task!',
-                  description: 'Are you sure you want to delete this task?',
-                  onApprove: () {
-                    Navigator.pop(context);
-                    deleteTask();
-                  },
+                  confirmText: 'Delete',
+                  content: 'Are you sure you want to delete this task?',
                 ),
               );
+              if (result == true && context.mounted) {
+                Navigator.pop(context);
+                deleteTask();
+              }
             },
           ),
         ],
@@ -129,7 +130,10 @@ class TaskDetailItem extends StatelessWidget {
             children: [
               Text(
                 task['title'] ?? '',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 4),
               Text(task['description'] ?? ''),
@@ -175,7 +179,10 @@ class _EmployeItem extends StatelessWidget {
             children: [
               Text(
                 employee.name ?? '',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 4),
               Row(

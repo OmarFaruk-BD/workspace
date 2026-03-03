@@ -99,18 +99,15 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                   readOnly: true,
                   hintText: 'Role',
                   controller: TextEditingController(text: role),
-                  onTap: () {
-                    AppPopup.showAnimated(
-                      child: ItemSelectionPopUp(
-                        list: const ['Admin', 'Employee'],
-                        onSelected: (item) {
-                          role = item ?? 'Employee';
-                          setState(() {});
-                        },
-                        selectedItem: role,
-                      ),
+                  onTap: () async {
+                    final result = await AppPopup.show(
                       context: context,
+                      widget: ItemSelectionPopup(
+                        selectedItem: role,
+                        list: const ['Admin', 'Employee'],
+                      ),
                     );
+                    setState(() => role = result ?? 'Employee');
                   },
                 ),
                 const SizedBox(height: 20),
@@ -123,13 +120,9 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                     text: _imageFile?.path.split('/').last ?? 'Pick User Image',
                   ),
                   onTap: () async {
-                    await AppImagePicker().pickImage(
-                      context: context,
-                      onImagePick: (file) {
-                        _imageFile = file;
-                        setState(() {});
-                      },
-                    );
+                    final file = await AppImagePickerService.pickImage(context);
+                    if (file == null || !context.mounted) return;
+                    setState(() => _imageFile = file);
                   },
                 ),
                 if (_imageFile != null) const SizedBox(height: 20),

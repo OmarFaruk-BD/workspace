@@ -7,12 +7,12 @@ import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/components/approval_popup.dart';
 import 'package:workspace/core/components/app_text_field.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/app_image_picker.dart';
-import 'package:workspace/features/thesis/dashboard/model/task_model.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
+import 'package:workspace/features/thesis/dashboard/model/task_model.dart';
 import 'package:workspace/features/thesis/dashboard/model/shop_visit_model.dart';
 import 'package:workspace/features/thesis/dashboard/service/shop_visit_service.dart';
 import 'package:workspace/features/thesis/dashboard/visit/task_selection_popup.dart';
@@ -96,9 +96,9 @@ class _EditShopVisitState extends State<EditShopVisit> {
                 readOnly: true,
                 controller: TextEditingController(text: getTaskDetails(_task)),
                 onTap: () {
-                  AppPopup.showAnimated(
+                  AppPopup.show(
                     context: context,
-                    child: TaskSelectionPopup(
+                    widget: TaskSelectionPopup(
                       selectedTask: _task,
                       userId: widget.user?.id ?? '',
                       onSelected: (value) {
@@ -164,15 +164,14 @@ class _EditShopVisitState extends State<EditShopVisit> {
                 controller: TextEditingController(text: _visitType),
                 validator: _validator.validate,
                 onTap: () async {
-                  await AppPopup.showAnimated(
+                  final result = await AppPopup.show<String>(
                     context: context,
-                    child: ItemSelectionPopUp(
+                    widget: ItemSelectionPopup(
                       list: _taskTypeList,
                       selectedItem: _visitType,
-                      onSelected: (value) =>
-                          setState(() => _visitType = value ?? 'Sales'),
                     ),
                   );
+                  setState(() => _visitType = result ?? 'Sales');
                 },
               ),
               const SizedBox(height: 20),
@@ -187,13 +186,9 @@ class _EditShopVisitState extends State<EditShopVisit> {
                       'Pick shop visit image',
                 ),
                 onTap: () async {
-                  await AppImagePicker().pickImage(
-                    context: context,
-                    onImagePick: (file) {
-                      _imageFile = file;
-                      setState(() {});
-                    },
-                  );
+                  final file = await AppImagePickerService.pickImage(context);
+                  if (file == null || !context.mounted) return;
+                  setState(() => _imageFile = file);
                 },
               ),
               if (_imageFile != null) ...[
@@ -243,16 +238,18 @@ class _EditShopVisitState extends State<EditShopVisit> {
                 text: 'Delete Shop Visit',
                 isLoading: _isLoading2,
                 width: double.maxFinite,
-                onTap: () {
-                  AppPopup.showAnimated(
+                onTap: () async {
+                  final result = await AppPopup.show<bool>(
                     context: context,
-                    child: ApprovalWidget(
-                      onApprove: _deleteShopVisit,
+                    widget: const AppAlertDialog(
+                      confirmText: 'Delete',
                       title: 'Delete Shop Visit',
-                      description:
+                      content:
                           'Are you sure you want to delete this shop visit?',
                     ),
                   );
+                  if (result != true) return;
+                  _deleteShopVisit();
                 },
               ),
               const SizedBox(height: 100),

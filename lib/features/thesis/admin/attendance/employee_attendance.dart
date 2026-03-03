@@ -3,7 +3,7 @@ import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/service/location_service.dart';
+import 'package:workspace/core/service/app_location_service.dart';
 import 'package:workspace/core/components/app_text_field.dart';
 import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/admin/widget/pick_location.dart';
@@ -21,7 +21,7 @@ class AddEmployeeAttendancePage extends StatefulWidget {
 class _AddEmployeeAttendancePageState extends State<AddEmployeeAttendancePage> {
   final EAssignLocationService _eAssignLocation = EAssignLocationService();
   final TextEditingController _radius = TextEditingController();
-  final LocationService _locationService = LocationService();
+  final AppLocationService _locationService = AppLocationService();
   TimeOfDay _startTime = const TimeOfDay(hour: 09, minute: 00);
   TimeOfDay _endTime = const TimeOfDay(hour: 16, minute: 00);
   bool _isLoading = false;
@@ -59,7 +59,8 @@ class _AddEmployeeAttendancePageState extends State<AddEmployeeAttendancePage> {
                     initialTime: _startTime,
                   ).then((time) {
                     setState(() {
-                      _startTime = time ?? const TimeOfDay(hour: 09, minute: 00);
+                      _startTime =
+                          time ?? const TimeOfDay(hour: 09, minute: 00);
                     });
                   });
                 },
@@ -107,7 +108,7 @@ class _AddEmployeeAttendancePageState extends State<AddEmployeeAttendancePage> {
                       picked.latitude,
                       picked.longitude,
                     );
-                    _address = data?.fullAddress;
+                    _address = data?.address;
                     setState(() {});
                   }
                 },

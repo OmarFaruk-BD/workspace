@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/core/helper/extention.dart';
-import 'package:workspace/core/service/location_service.dart';
+import 'package:workspace/core/service/app_location_service.dart';
 import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
 import 'package:workspace/features/thesis/area/model/my_area_model.dart';
 import 'package:workspace/features/thesis/history/service/attendance_service.dart';
@@ -16,7 +16,7 @@ class HomeCubit extends Cubit<HomeState> {
     updateTime();
   }
 
-  final LocationService _locationService = LocationService();
+  final AppLocationService _locationService = AppLocationService();
   final AttendanceService _attendanceService = AttendanceService();
   final EAssignLocationService _assignLocationService =
       EAssignLocationService();
@@ -43,7 +43,7 @@ class HomeCubit extends Cubit<HomeState> {
     final long = double.tryParse(myAreaModel?.longitude ?? '');
     if (lat != null && long != null) {
       final location = await _locationService.getLocationDetail(lat, long);
-      emit(state.copyWith(address: location?.fullAddress));
+      emit(state.copyWith(address: location?.address));
     }
   }
 

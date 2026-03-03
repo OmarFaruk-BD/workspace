@@ -142,7 +142,7 @@ class RequestItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
-        onTap: () => AppNavigator.pushTo(
+        onTap: () => AppNavigator.push(
           context,
           EditEmergencyRequest(request: data, assignedTo: assignedTo),
         ).then((_) => onEdit?.call()),

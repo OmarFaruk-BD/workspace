@@ -10,7 +10,7 @@ class AppSnackBar {
     int duration = 4,
     String? actionLabel,
     VoidCallback? onAction,
-    Color backgroundColor = AppColors.green,
+    Color bgColor = AppColors.green,
   }) {
     final messenger = ScaffoldMessenger.of(context);
 
@@ -18,43 +18,36 @@ class AppSnackBar {
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
-          backgroundColor: backgroundColor,
+          persist: false,
+          backgroundColor: bgColor,
           margin: const EdgeInsets.all(12),
-          padding: const EdgeInsets.only(left: 15),
           behavior: SnackBarBehavior.floating,
           duration: Duration(seconds: duration),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          content: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  message,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: AppColors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              SnackBarAction(
-                label: actionLabel ?? 'OK',
-                textColor: Colors.white,
-                onPressed: onAction ?? () => messenger.hideCurrentSnackBar(),
-              ),
-            ],
+          content: Text(
+            message,
+            style: const TextStyle(
+              fontSize: 16,
+              color: AppColors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          action: SnackBarAction(
+            label: actionLabel ?? 'OK',
+            textColor: AppColors.white,
+            onPressed: onAction ?? () => messenger.hideCurrentSnackBar(),
           ),
         ),
       );
   }
 
   static void success(BuildContext context, String message) {
-    return show(context, message, duration: 3);
+    show(context, message, bgColor: AppColors.green, duration: 3);
   }
 
   static void error(BuildContext context, String message) {
-    return show(context, message, backgroundColor: AppColors.red, duration: 6);
+    show(context, message, bgColor: AppColors.red, duration: 6);
   }
 }

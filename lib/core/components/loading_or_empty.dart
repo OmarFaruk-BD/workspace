@@ -6,7 +6,7 @@ class LoadingOrEmptyText extends StatelessWidget {
     super.key,
     this.isEmpty = false,
     this.isLoading = false,
-    this.emptyText = 'No items found.',
+    this.emptyText = 'No record found.',
   });
 
   final bool isEmpty;

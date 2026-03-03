@@ -6,8 +6,8 @@ import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
 import 'package:workspace/core/components/app_text_field.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/dashboard/service/emergency_request_service.dart';
 
 class CreateEmergencyRequest extends StatefulWidget {
@@ -73,15 +73,14 @@ class _CreateEmergencyRequestState extends State<CreateEmergencyRequest> {
                   controller: TextEditingController(text: _priority),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show<String>(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _priorities,
                         selectedItem: _priority,
-                        onSelected: (value) =>
-                            setState(() => _priority = value ?? 'Emergency'),
                       ),
                     );
+                    setState(() => _priority = result ?? 'Emergency');
                   },
                 ),
                 const SizedBox(height: 30),

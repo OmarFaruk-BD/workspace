@@ -15,7 +15,7 @@ class MyTaskItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 22),
       child: InkWell(
         onTap: () {
-          AppNavigator.pushTo(
+          AppNavigator.push(
             context,
             MyTaskDetail(task: task),
           ).then((_) => onBack?.call());

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/core/utils/app_images.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/helper/extention.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/features/thesis/history/cubit/attendance_cubit.dart';
 
 class InfoRow extends StatelessWidget {
@@ -20,31 +19,37 @@ class InfoRow extends StatelessWidget {
             Column(
               children: [
                 SvgPicture.asset(AppImages.punch_1),
-                CommonText(
+                Text(
                   state.attendanceDetail?.punchIn.toDateString() ?? '--:--',
-                  fontWeight: FontWeight.w600,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const CommonText('Punch In', color: AppColors.grey),
+                const Text('Punch In', style: TextStyle(color: AppColors.grey)),
               ],
             ),
             Column(
               children: [
                 SvgPicture.asset(AppImages.punch_2),
-                CommonText(
+                Text(
                   state.attendanceDetail?.totalHours ?? '--:--',
-                  fontWeight: FontWeight.w600,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const CommonText('Total Hours', color: AppColors.grey),
+                const Text(
+                  'Total Hours',
+                  style: TextStyle(color: AppColors.grey),
+                ),
               ],
             ),
             Column(
               children: [
                 SvgPicture.asset(AppImages.punch_3),
-                CommonText(
+                Text(
                   state.attendanceDetail?.punchOut.toDateString() ?? '--:--',
-                  fontWeight: FontWeight.w600,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const CommonText('Punch Out', color: AppColors.grey),
+                const Text(
+                  'Punch Out',
+                  style: TextStyle(color: AppColors.grey),
+                ),
               ],
             ),
           ],

@@ -146,7 +146,7 @@ class LeaveRequestItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
-          AppNavigator.pushTo(
+          AppNavigator.push(
             context,
             ELeaveDetail(leave: data, assignedTo: assignedTo),
           ).then((_) => onEdit?.call());

@@ -80,7 +80,7 @@ class _LeaveItemState extends State<LeaveItem> {
                   onTap: _cancelLeave,
                   isLoading: isLoading,
                   textColor: AppColors.red,
-                  btnColor: AppColors.red.withAlpha(50),
+                  buttonColor: AppColors.red.withAlpha(50),
                 ),
               ],
             ),

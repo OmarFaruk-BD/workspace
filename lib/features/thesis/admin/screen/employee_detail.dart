@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/core/helper/extention.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/utils/app_images.dart';
 import 'package:workspace/core/helper/navigation.dart';
 import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/components/approval_popup.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/app_network_image.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/admin/attendance/e_on_map.dart';
 import 'package:workspace/features/thesis/admin/screen/edit_employe.dart';
 import 'package:workspace/features/thesis/admin/widget/action_button.dart';
@@ -98,7 +98,10 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                               base64Decode(user?.imageUrl ?? ''),
                             ),
                           )
-                        : const AppCachedImage(AppImages.demoAvaterURL, radius: 100),
+                        : const AppCachedImage(
+                            AppImages.demoAvaterURL,
+                            radius: 100,
+                          ),
                   ),
                 ),
               ),
@@ -161,7 +164,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
               ActionButton(
                 text: 'Edit Profile',
                 onTap: () {
-                  AppNavigator.pushTo(
+                  AppNavigator.push(
                     context,
                     EditEmployeePage(user: user),
                   ).then((_) => fetchEmployees());
@@ -171,17 +174,19 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                 text: 'Delete Profile',
                 onTap: () async {
                   if (isDeleting) return;
-                  const text = 'Are you sure you want to delete this profile?';
-                  await showDialog(
+                  final result = await showDialog<bool>(
                     context: context,
                     builder: (context) {
-                      return ApprovalWidget(
+                      return const AppAlertDialog(
+                        confirmText: 'Delete',
                         title: 'Delete Profile!',
-                        description: text,
-                        onApprove: _deleteEmployee,
+                        content:
+                            'Are you sure you want to delete this profile?',
                       );
                     },
                   );
+                  if (result != true) return;
+                  _deleteEmployee();
                 },
               ),
             ],

@@ -93,15 +93,14 @@ class _CreateLeaveRequestState extends State<CreateLeaveRequest> {
                   controller: TextEditingController(text: _leaveType),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show<String>(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _leaveTypeList,
                         selectedItem: _leaveType,
-                        onSelected: (value) =>
-                            setState(() => _leaveType = value ?? 'Casual'),
                       ),
                     );
+                    setState(() => _leaveType = result ?? 'Casual');
                   },
                 ),
                 const SizedBox(height: 30),

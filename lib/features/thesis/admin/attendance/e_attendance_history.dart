@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:workspace/core/helper/extention.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/components/app_bar.dart';
-import 'package:workspace/core/service/location_service.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/loading_or_empty.dart';
+import 'package:workspace/core/service/app_location_service.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/history/widget/date_item.dart';
 import 'package:workspace/features/thesis/history/service/attendance_service.dart';
 import 'package:workspace/features/thesis/history/model/attendance_detail_model.dart';
@@ -103,7 +103,7 @@ class ToDayAttendanceHistory extends StatefulWidget {
 }
 
 class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
-  final LocationService _service = LocationService();
+  final AppLocationService _service = AppLocationService();
   AttendanceDetailModel? todayAttendanceHistory;
   String? address;
 
@@ -144,7 +144,7 @@ class _ToDayAttendanceHistoryState extends State<ToDayAttendanceHistory> {
 
   void _getAddressFromLocation(double lat, double long) async {
     final location = await _service.getLocationDetail(lat, long);
-    setState(() => address = location?.fullAddress);
+    setState(() => address = location?.address);
   }
 
   @override

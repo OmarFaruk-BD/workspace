@@ -83,18 +83,16 @@ class _MyTaskDetailState extends State<MyTaskDetail> {
           AppButton(
             text: 'Update Task Status',
             isLoading: _isLoading,
-            onTap: () {
-              AppPopup.showAnimated(
+            onTap: () async {
+              final result = await AppPopup.show<String>(
                 context: context,
-                child: ItemSelectionPopUp(
+                widget: ItemSelectionPopup(
                   list: statusList,
                   selectedItem: _status,
-                  onSelected: (value) {
-                    _status = value ?? 'Pending';
-                    _editTask();
-                  },
                 ),
               );
+              _status = result ?? 'Pending';
+              _editTask();
             },
           ),
           const SizedBox(height: 15),
@@ -130,7 +128,10 @@ class TaskDetailItem extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 task.title,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 10),
               Text(task.description),
@@ -174,7 +175,10 @@ class _EmployeItem extends StatelessWidget {
             children: [
               Text(
                 employee.name ?? '',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 4),
               Row(

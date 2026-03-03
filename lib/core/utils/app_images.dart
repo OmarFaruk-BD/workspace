@@ -10,6 +10,7 @@ class AppImages {
   static const String redAlert = 'assets/image/red_alert.png';
   static const String punchInPNG = 'assets/image/punch_in.png';
   static const String punchOutPNG = 'assets/image/punch_out.png';
+  static const String placeholder = 'assets/image/placeholder.png';
 
   ///SVG
   static const String search = 'assets/svg/search.svg';

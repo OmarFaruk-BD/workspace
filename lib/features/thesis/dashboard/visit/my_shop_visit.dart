@@ -143,7 +143,7 @@ class ShopVisitItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
-          AppNavigator.pushTo(
+          AppNavigator.push(
             context,
             ShopVisitDetail(shopVisit: data, user: assignedTo),
           );
@@ -227,7 +227,7 @@ class ShopVisitItem extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      AppNavigator.pushTo(
+                      AppNavigator.push(
                         context,
                         ShopVisitDetail(shopVisit: data, user: assignedTo),
                       );
@@ -236,7 +236,7 @@ class ShopVisitItem extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      AppNavigator.pushTo(
+                      AppNavigator.push(
                         context,
                         EditShopVisit(shopVisit: data, user: assignedTo),
                       ).then((_) => onEdit?.call());

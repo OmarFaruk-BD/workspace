@@ -3,11 +3,11 @@ import 'package:location/location.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:location/location.dart' as loc;
 
-class LocationService {
+class AppLocationService {
   final Logger _logger = Logger();
   final loc.Location _location = loc.Location();
 
-  Future<bool> locationEnabled() async {
+  Future<bool> serviceEnabled() async {
     final status = await _location.serviceEnabled();
     return status;
   }
@@ -17,7 +17,7 @@ class LocationService {
     return status;
   }
 
-  Future<MyLocationModel?> getMyLocation() async {
+  Future<AppLocationModel?> getMyLocation() async {
     try {
       LocationData? currentLocation = await _location.getLocation();
       List<Placemark> newPlace = await placemarkFromCoordinates(
@@ -26,7 +26,7 @@ class LocationService {
       );
       if (newPlace.isNotEmpty) {
         Placemark placeMark = newPlace.first;
-        final myLocationModel = MyLocationModel(
+        final myLocationModel = AppLocationModel(
           latitude: currentLocation.latitude,
           longitude: currentLocation.longitude,
           name: placeMark.name,
@@ -52,7 +52,7 @@ class LocationService {
     }
   }
 
-  Future<MyLocationModel?> getLocationDetail(
+  Future<AppLocationModel?> getLocationDetail(
     double latitude,
     double longitude,
   ) async {
@@ -63,7 +63,7 @@ class LocationService {
       );
       if (newPlace.isNotEmpty) {
         Placemark placeMark = newPlace.first;
-        final myLocationModel = MyLocationModel(
+        final myLocationModel = AppLocationModel(
           latitude: latitude,
           longitude: longitude,
           name: placeMark.name,
@@ -90,8 +90,8 @@ class LocationService {
   }
 }
 
-class MyLocationModel {
-  MyLocationModel({
+class AppLocationModel {
+  AppLocationModel({
     this.latitude,
     this.longitude,
     this.name,
@@ -120,13 +120,11 @@ class MyLocationModel {
   String? thoroughfare;
   String? subThoroughfare;
 
-  String get fullAddress {
+  String get address {
     return [
-      subLocality ?? '',
-      locality ?? '',
-      postalCode ?? '',
-      administrativeArea ?? '',
-      country ?? '',
-    ].where((element) => element.isNotEmpty).join(', ');
+      locality,
+      administrativeArea,
+      country,
+    ].where((e) => e != null && e.isNotEmpty).join(', ');
   }
 }

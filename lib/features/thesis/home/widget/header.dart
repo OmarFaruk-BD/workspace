@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/utils/app_styles.dart';
 import 'package:workspace/core/helper/navigation.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
 import 'package:workspace/features/thesis/home/screen/notification.dart';
 import 'package:workspace/features/thesis/home/screen/profile_page.dart';
@@ -57,20 +56,26 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                             base64Decode(state.user?.imageUrl ?? ''),
                           ),
                         )
-                      : const Icon(Icons.person, size: 40, color: AppColors.primary),
+                      : const Icon(
+                          Icons.person,
+                          size: 40,
+                          color: AppColors.primary,
+                        ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonText(
+                      Text(
                         state.user?.name ?? '',
                         maxLines: 2,
-                        fontSize: 18,
-                        color: AppColors.white,
-                        fontWeight: FontWeight.w600,
                         overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: AppColors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       Text(
                         state.user?.phone ?? '',
@@ -140,20 +145,26 @@ class HeaderWidgetV2 extends StatelessWidget {
                           base64Decode(state.user?.imageUrl ?? ''),
                         ),
                       )
-                    : const Icon(Icons.person, size: 40, color: AppColors.primary),
+                    : const Icon(
+                        Icons.person,
+                        size: 40,
+                        color: AppColors.primary,
+                      ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonText(
+                    Text(
                       state.user?.name ?? '',
                       maxLines: 2,
-                      fontSize: 18,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600,
                       overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     Text(
                       state.user?.phone ?? '',
@@ -165,7 +176,8 @@ class HeaderWidgetV2 extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () => AppNavigator.push(context, const NotificationPage()),
+                onPressed: () =>
+                    AppNavigator.push(context, const NotificationPage()),
                 icon: const Icon(
                   Icons.notifications,
                   color: AppColors.white,

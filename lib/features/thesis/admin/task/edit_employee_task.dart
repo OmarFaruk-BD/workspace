@@ -130,15 +130,14 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                   controller: TextEditingController(text: _dayType),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _dayTypeList,
                         selectedItem: _dayType,
-                        onSelected: (value) =>
-                            setState(() => _dayType = value ?? 'Daily'),
                       ),
                     );
+                    setState(() => _dayType = result ?? 'Daily');
                   },
                 ),
                 const SizedBox(height: 20),
@@ -149,15 +148,14 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                   controller: TextEditingController(text: _taskType),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show<String>(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _taskTypeList,
                         selectedItem: _taskType,
-                        onSelected: (value) =>
-                            setState(() => _taskType = value ?? 'Sales'),
                       ),
                     );
+                    setState(() => _taskType = result ?? 'Sales');
                   },
                 ),
                 const SizedBox(height: 20),
@@ -168,15 +166,14 @@ class _EditEmployeeTaskState extends State<EditEmployeeTask> {
                   controller: TextEditingController(text: _priority),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show<String>(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _priorityList,
                         selectedItem: _priority,
-                        onSelected: (value) =>
-                            setState(() => _priority = value ?? 'Low'),
                       ),
                     );
+                    setState(() => _priority = result ?? 'Low');
                   },
                 ),
                 const SizedBox(height: 30),

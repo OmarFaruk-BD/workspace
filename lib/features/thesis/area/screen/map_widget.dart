@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:workspace/core/service/permission_service.dart';
+import 'package:workspace/core/service/app_permission_service.dart';
 
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key, this.lat, this.lng, this.radius});
@@ -42,9 +42,9 @@ class MapWidgetState extends State<MapWidget> {
       _moveCameraToPosition(_currentPosition);
       return;
     }
-    await PermissionService().locationPermission(context);
+    await AppPermissionService().locationPermission(context);
     if (!mounted) return;
-    await PermissionService().locationPermission(context);
+    await AppPermissionService().locationPermission(context);
     Position position = await Geolocator.getCurrentPosition();
     _currentPosition = LatLng(position.latitude, position.longitude);
     _moveCameraToPosition(_currentPosition);

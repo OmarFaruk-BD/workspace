@@ -4,9 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:action_slider/action_slider.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/utils/app_images.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/service/location_service.dart';
+import 'package:workspace/core/service/app_location_service.dart';
 import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
 import 'package:workspace/features/thesis/home/cubit/home_cubit.dart';
 import 'package:workspace/features/thesis/history/service/attendance_service.dart';
@@ -14,7 +13,7 @@ import 'package:workspace/features/thesis/history/service/attendance_service.dar
 class BottomSheetWidget extends StatelessWidget {
   BottomSheetWidget({super.key});
   final AttendanceService _attendanceService = AttendanceService();
-  final LocationService _locationService = LocationService();
+  final AppLocationService _locationService = AppLocationService();
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +42,14 @@ class BottomSheetWidget extends StatelessWidget {
                 );
               },
               child: Center(
-                child: CommonText(
+                child: Text(
                   state.punchedIn == true
                       ? '   Swipe Left to Punch Out'
                       : '   Swipe Right to Punch In',
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w500,
+                  style: const TextStyle(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -78,7 +79,7 @@ class BottomSheetWidget extends StatelessWidget {
     final result = await _attendanceService.createAttendance(
       isPunchIn: !isPunchIn,
       assignTo: user?.id ?? '',
-      address: location?.fullAddress ?? '',
+      address: location?.address ?? '',
       latitude: location?.latitude?.toString() ?? '',
       longitude: location?.longitude?.toString() ?? '',
     );

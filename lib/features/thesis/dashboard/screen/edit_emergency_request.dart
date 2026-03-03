@@ -5,8 +5,8 @@ import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/components/approval_popup.dart';
 import 'package:workspace/core/components/app_text_field.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
 import 'package:workspace/features/thesis/home/model/notification_model.dart';
 import 'package:workspace/features/thesis/dashboard/service/emergency_request_service.dart';
@@ -126,15 +126,14 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                   controller: TextEditingController(text: _priority),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show<String>(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _priorities,
                         selectedItem: _priority,
-                        onSelected: (value) =>
-                            setState(() => _priority = value ?? 'General'),
                       ),
                     );
+                    setState(() => _priority = result ?? 'General');
                   },
                 ),
                 const SizedBox(height: 30),
@@ -154,16 +153,18 @@ class _EditEmergencyRequestState extends State<EditEmergencyRequest> {
                   text: 'Delete Notification',
                   isLoading: _isLoading2,
                   width: double.maxFinite,
-                  onTap: () {
-                    AppPopup.showAnimated(
+                  onTap: () async {
+                    final result = await AppPopup.show<bool>(
                       context: context,
-                      child: ApprovalWidget(
-                        onApprove: _deleteNotification,
+                      widget: const AppAlertDialog(
+                        confirmText: 'Delete',
                         title: 'Delete Notification',
-                        description:
+                        content:
                             'Are you sure you want to delete this notification?',
                       ),
                     );
+                    if (result != true) return;
+                    _deleteNotification();
                   },
                 ),
                 const SizedBox(height: 100),

@@ -8,10 +8,10 @@ import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
 import 'package:workspace/core/components/app_text_field.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/app_image_picker.dart';
-import 'package:workspace/features/thesis/dashboard/model/task_model.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
+import 'package:workspace/features/thesis/dashboard/model/task_model.dart';
 import 'package:workspace/features/thesis/dashboard/service/shop_visit_service.dart';
 import 'package:workspace/features/thesis/dashboard/visit/task_selection_popup.dart';
 
@@ -57,10 +57,10 @@ class _CreateShopVisitState extends State<CreateShopVisit> {
               AppTextField(
                 readOnly: true,
                 controller: TextEditingController(text: getTaskDetails(_task)),
-                onTap: () {
-                  AppPopup.showAnimated(
+                onTap: () async {
+                  await AppPopup.show(
                     context: context,
-                    child: TaskSelectionPopup(
+                    widget: TaskSelectionPopup(
                       selectedTask: _task,
                       userId: widget.user?.id ?? '',
                       onSelected: (value) {
@@ -126,15 +126,14 @@ class _CreateShopVisitState extends State<CreateShopVisit> {
                 controller: TextEditingController(text: _visitType),
                 validator: _validator.validate,
                 onTap: () async {
-                  await AppPopup.showAnimated(
+                  final result = await AppPopup.show<String>(
                     context: context,
-                    child: ItemSelectionPopUp(
+                    widget: ItemSelectionPopup(
                       list: _taskTypeList,
                       selectedItem: _visitType,
-                      onSelected: (value) =>
-                          setState(() => _visitType = value ?? 'Sales'),
                     ),
                   );
+                  setState(() => _visitType = result ?? 'Sales');
                 },
               ),
               const SizedBox(height: 20),
@@ -149,13 +148,9 @@ class _CreateShopVisitState extends State<CreateShopVisit> {
                       'Pick shop visit image',
                 ),
                 onTap: () async {
-                  await AppImagePicker().pickImage(
-                    context: context,
-                    onImagePick: (file) {
-                      _imageFile = file;
-                      setState(() {});
-                    },
-                  );
+                  final file = await AppImagePickerService.pickImage(context);
+                  if (file == null || !context.mounted) return;
+                  setState(() => _imageFile = file);
                 },
                 validator: (_) {
                   if (_imageFile == null) {

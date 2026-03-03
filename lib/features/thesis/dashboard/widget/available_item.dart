@@ -75,7 +75,6 @@ class AvailableItem extends StatelessWidget {
             vPadding: 8,
             textSize: 14,
             hPadding: 16,
-            btnColor: day.available == '0' ? AppColors.grey : null,
             onTap: () {
               if (day.available == '0') {
                 AppSnackBar.show(context, 'No leave available.');

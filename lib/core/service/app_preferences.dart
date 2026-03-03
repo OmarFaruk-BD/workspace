@@ -26,4 +26,26 @@ class AppPreferences {
     }
     return firstTime;
   }
+
+  Future<void> saveEmailAndPassword(String email, String password) async {
+    await _initialize();
+    await _prefs.setString('email', email);
+    await _prefs.setString('password', password);
+  }
+
+  Future<void> saveToken(String token) async {
+    await _initialize();
+    await _prefs.setString('token', token);
+  }
+
+  Future<String?> getToken() async {
+    await _initialize();
+    return _prefs.getString('token');
+  }
+
+  Future<void> clearAuthData() async {
+    await _prefs.remove('token');
+    await _prefs.remove('email');
+    await _prefs.remove('password');
+  }
 }

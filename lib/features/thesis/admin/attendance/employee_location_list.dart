@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/helper/extention.dart';
-import 'package:workspace/core/service/location_service.dart';
+import 'package:workspace/core/service/app_location_service.dart';
 import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/loading_or_empty.dart';
 import 'package:workspace/features/thesis/area/model/my_area_model.dart';
@@ -64,7 +64,7 @@ class MyAssignedAreaItem extends StatefulWidget {
 }
 
 class _MyAssignedAreaItemState extends State<MyAssignedAreaItem> {
-  final LocationService _service = LocationService();
+  final AppLocationService _service = AppLocationService();
   MyAreaModel? area;
   String? address;
 
@@ -80,7 +80,7 @@ class _MyAssignedAreaItemState extends State<MyAssignedAreaItem> {
     final long = double.tryParse(area?.longitude ?? '');
     if (lat != null && long != null) {
       final location = await _service.getLocationDetail(lat, long);
-      setState(() => address = location?.fullAddress);
+      setState(() => address = location?.address);
     }
   }
 

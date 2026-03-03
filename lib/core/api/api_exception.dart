@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:workspace/core/service/network_service.dart';
+import 'package:workspace/core/service/app_network_service.dart';
 
 class ApiException {
-  final NetworkService _networkService = NetworkService();
+  final AppNetworkService _networkService = AppNetworkService();
 
   Future<String> message(DioException exception) async {
     final hasNetworkError =

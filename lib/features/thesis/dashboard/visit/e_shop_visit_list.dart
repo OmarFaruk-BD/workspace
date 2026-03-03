@@ -136,7 +136,7 @@ class EShopVisitItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
-          AppNavigator.pushTo(
+          AppNavigator.push(
             context,
             EShopVisitDetails(shopVisit: data, user: assignedTo),
           );
@@ -217,7 +217,7 @@ class EShopVisitItem extends StatelessWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  AppNavigator.pushTo(
+                  AppNavigator.push(
                     context,
                     EShopVisitDetails(shopVisit: data, user: assignedTo),
                   );

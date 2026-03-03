@@ -143,7 +143,7 @@ class NotificationItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
-        onTap: () => AppNavigator.pushTo(
+        onTap: () => AppNavigator.push(
           context,
           EditEmployeeNotificationPage(
             notification: data,
@@ -189,7 +189,7 @@ class NotificationItem extends StatelessWidget {
                   ],
                 ),
               ),
-              AdminButton(
+              AppButton(
                 text: data.priority ?? '',
                 radius: 20,
                 vPadding: 6,

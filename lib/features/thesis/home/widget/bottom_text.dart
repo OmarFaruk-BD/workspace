@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/helper/navigation.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/features/thesis/home/cubit/home_cubit.dart';
 import 'package:workspace/features/thesis/home/screen/landing_page.dart';
@@ -24,25 +23,29 @@ class BottomSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 if (state.punchedIn != true) ...[
-                  const CommonText(
+                  const Text(
                     'How to work',
-                    fontSize: 18,
-                    color: AppColors.black,
-                    fontWeight: FontWeight.w600,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  const CommonText(
+                  const Text(
                     'The easiest way to track attendance and time for your mobile employees. Seamlessly track attendance and retrieve details of location and time in real-time.',
-                    fontSize: 12,
-                    color: AppColors.grey,
                     textAlign: TextAlign.center,
-                    fontWeight: FontWeight.w500,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppColors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   const SizedBox(height: 20),
                 ],
                 if (state.punchedIn == true) ...[
                   AppButton(
                     text: 'Today’s Visit Area',
-                    btnColor: Colors.white,
+                    buttonColor: Colors.white,
                     textColor: AppColors.red,
                     onTap: () {
                       AppNavigator.push(context, const LandingPage(index: 1));

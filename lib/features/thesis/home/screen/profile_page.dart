@@ -9,10 +9,10 @@ import 'package:workspace/core/helper/navigation.dart';
 import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
+import 'package:workspace/core/components/app_network_image.dart';
 import 'package:workspace/features/thesis/auth/cubit/auth_cubit.dart';
 import 'package:workspace/features/thesis/auth/model/user_model.dart';
-import 'package:workspace/core/components/approval_popup.dart';
-import 'package:workspace/core/components/app_network_image.dart';
 import 'package:workspace/features/thesis/admin/screen/edit_employe.dart';
 import 'package:workspace/features/thesis/auth/service/auth_service.dart';
 import 'package:workspace/features/thesis/admin/screen/admin_login_page.dart';
@@ -80,7 +80,10 @@ class _ProfilePageState extends State<ProfilePage> {
                               base64Decode(user?.imageUrl ?? ''),
                             ),
                           )
-                        : const AppCachedImage(AppImages.demoAvaterURL, radius: 100),
+                        : const AppCachedImage(
+                            AppImages.demoAvaterURL,
+                            radius: 100,
+                          ),
                   ),
                 ),
               ),
@@ -124,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
             child: AppButton(
               text: 'Edit Profile',
               onTap: () {
-                AppNavigator.pushTo(
+                AppNavigator.push(
                   context,
                   EditEmployeePage(user: user),
                 ).then((_) => fetchEmployees());
@@ -135,15 +138,17 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(35),
             child: AppButton(
               text: 'Sign Out',
-              onTap: () {
-                AppPopup.showAnimated(
+              onTap: () async {
+                final result = await AppPopup.show<bool>(
                   context: context,
-                  child: ApprovalWidget(
-                    onApprove: () => _signOut(context),
+                  widget: const AppAlertDialog(
                     title: 'Sign Out',
-                    description: 'Are you sure you want to sign out?',
+                    confirmText: 'Sign Out',
+                    content: 'Are you sure you want to sign out?',
                   ),
                 );
+                if (result != true || !context.mounted) return;
+                _signOut(context);
               },
             ),
           ),

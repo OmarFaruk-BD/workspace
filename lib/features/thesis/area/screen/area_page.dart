@@ -4,11 +4,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/utils/app_images.dart';
 import 'package:workspace/core/components/app_bar.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
+import 'package:workspace/core/service/app_permission_service.dart';
 import 'package:workspace/features/thesis/home/cubit/home_cubit.dart';
-import 'package:workspace/core/service/permission_service.dart';
 import 'package:workspace/features/thesis/area/screen/map_widget.dart';
 import 'package:workspace/features/thesis/home/widget/duty_location.dart';
 import 'package:workspace/features/thesis/home/widget/punch_bottom_sheet.dart';
@@ -32,18 +31,22 @@ class _AreaPageState extends State<AreaPage> {
             children: [
               const Spacer(),
               Center(
-                child: CommonText(
+                child: Text(
                   state.time ?? '',
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
                   textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-              CommonText(
+              Text(
                 state.date ?? '',
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
                 textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               const Spacer(),
               DottedBorder(
@@ -90,9 +93,7 @@ class _AreaPageState extends State<AreaPage> {
                       ? Column(
                           children: [
                             const Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 24,
-                              ),
+                              padding: EdgeInsets.symmetric(horizontal: 24),
                               child: DutyLocation(),
                             ),
                             const SizedBox(height: 15),
@@ -102,7 +103,7 @@ class _AreaPageState extends State<AreaPage> {
                               ),
                               child: AppButton(
                                 text: 'Start Visit',
-                                btnColor: Colors.white,
+                                buttonColor: Colors.white,
                                 textColor: AppColors.red,
                                 onTap: () => _punch(context),
                               ),
@@ -131,7 +132,7 @@ class _AreaPageState extends State<AreaPage> {
   }
 
   void _punch(BuildContext context) async {
-    final service = await PermissionService().locationPermission(context);
+    final service = await AppPermissionService().locationPermission(context);
     if (!context.mounted) return;
 
     if (service != true) {
@@ -139,7 +140,7 @@ class _AreaPageState extends State<AreaPage> {
       return;
     }
 
-    final permission = await PermissionService().locationPermission(context);
+    final permission = await AppPermissionService().locationPermission(context);
     if (!context.mounted) return;
     if (permission != true) {
       AppSnackBar.show(context, 'Please enable location permission');

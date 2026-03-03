@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workspace/core/components/app_bar.dart';
-import 'package:workspace/core/service/location_service.dart';
+import 'package:workspace/core/service/app_location_service.dart';
 import 'package:workspace/features/thesis/area/screen/map_widget.dart';
 import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/loading_or_empty.dart';
@@ -16,7 +16,7 @@ class EmployeeOnMap extends StatefulWidget {
 
 class _EmployeeOnMapState extends State<EmployeeOnMap> {
   final AttendanceService _attendanceService = AttendanceService();
-  final LocationService _locationService = LocationService();
+  final AppLocationService _locationService = AppLocationService();
   String? address;
 
   bool isLoading = true;
@@ -47,7 +47,7 @@ class _EmployeeOnMapState extends State<EmployeeOnMap> {
         getLat,
         getLong,
       );
-      setState(() => address = location?.fullAddress);
+      setState(() => address = location?.address);
     }
   }
 

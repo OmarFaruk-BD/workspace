@@ -1,8 +1,7 @@
 import 'dart:io';
-import 'package:workspace/core/api/api_client.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-class NetworkService {
+class AppNetworkService {
   final Connectivity _connectivity = Connectivity();
 
   Future<bool> hasConnection() async {
@@ -25,9 +24,6 @@ class NetworkService {
     }
     if (!await hasInternetAccess()) {
       return 'Connected to a network, but no internet access.';
-    }
-    if (!await hasInternetAccess(Endpoints.baseURL)) {
-      return 'We could not connect to the server.';
     }
     return null;
   }

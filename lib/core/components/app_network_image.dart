@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:workspace/core/components/app_shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:workspace/core/components/app_shimmer.dart';
+import 'package:workspace/core/utils/app_images.dart';
 
-class AppNetworkImage extends StatelessWidget {
-  const AppNetworkImage(
+class AppCachedNetworkImage extends StatelessWidget {
+  const AppCachedNetworkImage(
     this.url, {
     this.fit,
     super.key,
@@ -38,11 +39,15 @@ class AppNetworkImage extends StatelessWidget {
   }
 
   Widget _buildErrorWidget() {
-    return SizedBox(width: width, height: height, child: const Icon(Icons.image));
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.asset(AppImages.placeholder, fit: BoxFit.cover),
+    );
   }
 }
 
-class AppCachedImage extends AppNetworkImage {
+class AppCachedImage extends AppCachedNetworkImage {
   const AppCachedImage(
     super.url, {
     super.key,
@@ -53,8 +58,8 @@ class AppCachedImage extends AppNetworkImage {
   });
 }
 
-class AppCachedNetworkImage extends AppNetworkImage {
-  const AppCachedNetworkImage(
+class AppNetworkImage extends AppCachedNetworkImage {
+  const AppNetworkImage(
     super.url, {
     super.key,
     super.fit,

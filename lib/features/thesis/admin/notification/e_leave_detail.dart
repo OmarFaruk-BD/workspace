@@ -5,8 +5,8 @@ import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
-import 'package:workspace/core/components/approval_popup.dart';
 import 'package:workspace/core/components/app_text_field.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
 import 'package:workspace/features/thesis/dashboard/model/leave_model_v2.dart';
 import 'package:workspace/features/thesis/dashboard/service/leave_request_service.dart';
@@ -101,19 +101,18 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                   controller: TextEditingController(text: _leaveStatus),
                   validator: _validator.validate,
                   onTap: () async {
-                    await AppPopup.showAnimated(
+                    final result = await AppPopup.show(
                       context: context,
-                      child: ItemSelectionPopUp(
+                      widget: ItemSelectionPopup(
                         list: _statusList,
                         selectedItem: _leaveStatus,
-                        onSelected: (value) =>
-                            setState(() => _leaveStatus = value ?? 'Pending'),
                       ),
                     );
+                    setState(() => _leaveStatus = result ?? 'Pending');
                   },
                 ),
                 const SizedBox(height: 30),
-                AdminButton(
+                AppButton(
                   text: 'Update Leave Request',
                   isLoading: _isLoading,
                   width: double.maxFinite,
@@ -125,20 +124,22 @@ class _ELeaveDetailState extends State<ELeaveDetail> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 8),
-                AdminButton(
+                AppButton(
                   text: 'Delete Leave Request',
                   isLoading: _isLoading2,
                   width: double.maxFinite,
-                  onTap: () {
-                    AppPopup.showAnimated(
+                  onTap: () async {
+                    final result = await AppPopup.show<bool>(
                       context: context,
-                      child: ApprovalWidget(
-                        onApprove: _deleteLeaveRequest,
+                      widget: const AppAlertDialog(
                         title: 'Delete Leave Request',
-                        description:
+                        confirmText: 'Delete',
+                        content:
                             'Are you sure you want to delete this leave request?',
                       ),
                     );
+                    if (result != true) return;
+                    _deleteLeaveRequest();
                   },
                 ),
                 const SizedBox(height: 100),

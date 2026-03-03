@@ -3,7 +3,7 @@ import 'package:workspace/core/helper/navigation.dart';
 import 'package:workspace/core/components/app_bar.dart';
 import 'package:workspace/core/components/app_popup.dart';
 import 'package:workspace/core/components/app_button.dart';
-import 'package:workspace/core/components/approval_popup.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 import 'package:workspace/features/thesis/admin/screen/add_employee.dart';
 import 'package:workspace/features/thesis/admin/screen/employe_list.dart';
 import 'package:workspace/features/thesis/admin/widget/action_button.dart';
@@ -34,7 +34,10 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AdminAppBar(title: 'Manager Dashboard', hasBackButton: false),
+      appBar: const AdminAppBar(
+        title: 'Manager Dashboard',
+        hasBackButton: false,
+      ),
       body: ListView(
         children: [
           const SizedBox(height: 20),
@@ -49,11 +52,13 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ),
               ActionButton(
                 text: 'Employee List',
-                onTap: () => AppNavigator.push(context, const EmployeeListPage()),
+                onTap: () =>
+                    AppNavigator.push(context, const EmployeeListPage()),
               ),
               ActionButton(
                 text: 'Manager List',
-                onTap: () => AppNavigator.push(context, const ManagerListPage()),
+                onTap: () =>
+                    AppNavigator.push(context, const ManagerListPage()),
               ),
             ],
           ),
@@ -63,8 +68,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Assign Task',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -80,8 +85,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'See Assigned Task',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -97,8 +102,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Shop Visit List',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -120,8 +125,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Assign Location',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -137,8 +142,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'See Assigned Location',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -154,8 +159,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Attendance History',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -177,8 +182,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Emergency Request List',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -194,8 +199,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Leave Request List',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -211,8 +216,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'Send Notification',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -228,8 +233,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               ActionButton(
                 text: 'See Notifications',
                 onTap: () async {
-                  await AppPopup.showAnimated(
-                    child: EmployeePopup(
+                  await AppPopup.show(
+                    widget: EmployeePopup(
                       onSelected: (employee) {
                         if (!mounted) return;
                         AppNavigator.push(
@@ -247,7 +252,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: AdminButton(text: 'Sign Out', onTap: _signOut),
+            child: AppButton(text: 'Sign Out', onTap: _signOut),
           ),
           const SizedBox(height: 20),
         ],
@@ -256,17 +261,17 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
   }
 
   void _signOut() async {
-    AppPopup.showAnimated(
+    final result = await AppPopup.show<bool>(
       context: context,
-      child: ApprovalWidget(
+      widget: const AppAlertDialog(
         title: 'Sign Out',
-        description: 'Are you sure you want to sign out?',
-        onApprove: () async {
-          await _service.signOut();
-          if (!mounted) return;
-          AppNavigator.pushAndRemoveUntil(context, const AdminLoginPage());
-        },
+        confirmText: 'Sign Out',
+        content: 'Are you sure you want to sign out?',
       ),
     );
+    if (result != true) return;
+    await _service.signOut();
+    if (!mounted) return;
+    AppNavigator.pushAndRemoveUntil(context, const AdminLoginPage());
   }
 }

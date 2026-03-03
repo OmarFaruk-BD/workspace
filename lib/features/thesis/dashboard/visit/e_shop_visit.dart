@@ -159,7 +159,7 @@ class _EShopVisitDetailsState extends State<EShopVisitDetails> {
               maxLine: 3,
             ),
             const SizedBox(height: 20),
-            AdminButton(
+            AppButton(
               text: 'Add Comment',
               onTap: _addComment,
               isLoading: _isLoading,

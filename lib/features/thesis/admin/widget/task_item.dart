@@ -43,13 +43,13 @@ class TaskItem extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Center(
-              child: AdminButton(
+              child: AppButton(
                 radius: 50,
                 vPadding: 8,
                 hPadding: 25,
                 text: 'Detail',
                 onTap: () {
-                  AppNavigator.pushTo(
+                  AppNavigator.push(
                     context,
                     EmployeeTaskDetailPage(task: task),
                   ).then((_) => onBack?.call());

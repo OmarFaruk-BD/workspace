@@ -52,7 +52,7 @@ class _EmployeeListPageState extends State<EmployeeListPage> {
                   return EmployeItem(
                     employee: employee,
                     onTap: () {
-                      AppNavigator.pushTo(
+                      AppNavigator.push(
                         context,
                         EmployeeDetailPage(userModel: employee),
                       ).then((_) => fetchEmployees());
@@ -118,7 +118,7 @@ class EmployeItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 const Center(
-                  child: AdminButton(radius: 30, vPadding: 6, text: 'Details'),
+                  child: AppButton(radius: 30, vPadding: 6, text: 'Details'),
                 ),
               ],
             ),

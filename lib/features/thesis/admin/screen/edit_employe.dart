@@ -8,10 +8,10 @@ import 'package:workspace/core/components/app_button.dart';
 import 'package:workspace/core/service/app_validator.dart';
 import 'package:workspace/core/components/app_snack_bar.dart';
 import 'package:workspace/core/components/app_text_field.dart';
-import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/core/components/app_image_helper.dart';
 import 'package:workspace/core/components/app_image_picker.dart';
 import 'package:workspace/core/components/item_selection_popup.dart';
+import 'package:workspace/features/thesis/auth/model/user_model.dart';
 import 'package:workspace/features/thesis/admin/service/employee_service.dart';
 
 class EditEmployeePage extends StatefulWidget {
@@ -132,18 +132,15 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                   readOnly: true,
                   hintText: 'Role',
                   controller: TextEditingController(text: role),
-                  onTap: () {
-                    AppPopup.showAnimated(
-                      child: ItemSelectionPopUp(
-                        list: const ['Admin', 'Employee'],
-                        onSelected: (item) {
-                          role = item ?? 'Employee';
-                          setState(() {});
-                        },
-                        selectedItem: role,
-                      ),
+                  onTap: () async {
+                    final result = await AppPopup.show<String>(
                       context: context,
+                      widget: ItemSelectionPopup(
+                        selectedItem: role,
+                        list: const ['Admin', 'Employee'],
+                      ),
                     );
+                    setState(() => role = result ?? 'Employee');
                   },
                 ),
                 const SizedBox(height: 20),
@@ -156,13 +153,9 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
                     text: _imageFile?.path.split('/').last ?? 'Pick User Image',
                   ),
                   onTap: () async {
-                    await AppImagePicker().pickImage(
-                      context: context,
-                      onImagePick: (file) {
-                        _imageFile = file;
-                        setState(() {});
-                      },
-                    );
+                    final file = await AppImagePickerService.pickImage(context);
+                    if (file == null || !context.mounted) return;
+                    setState(() => _imageFile = file);
                   },
                 ),
                 if (_imageFile != null) const SizedBox(height: 20),

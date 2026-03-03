@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:workspace/core/components/app_popup.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:workspace/core/components/approval_popup.dart';
+import 'package:workspace/core/components/app_alert_dialog.dart';
 
-class PermissionService with WidgetsBindingObserver {
-  PermissionService() {
+class AppPermissionService with WidgetsBindingObserver {
+  AppPermissionService() {
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -22,7 +22,7 @@ class PermissionService with WidgetsBindingObserver {
   }
 
   Future<bool> locationPermission(BuildContext context) async {
-    var status = await Permission.location.status;
+    final status = await Permission.location.status;
 
     if (status.isGranted || status.isLimited) return true;
 
@@ -34,20 +34,17 @@ class PermissionService with WidgetsBindingObserver {
     if (status.isPermanentlyDenied || status.isRestricted) {
       if (!context.mounted) return false;
 
-      await AppPopup.showAnimated(
+      final onApprove = await AppPopup.show<bool>(
         context: context,
-        child: ApprovalWidget(
+        widget: const AppAlertDialog(
           title: 'Location Access Needed',
-          description:
-              'We use your location to show nearby restaurants and improve your experience. Please enable location permission in settings.',
-          onApprove: () async {
-            _settingsCompleter = Completer<bool>();
-            await openAppSettings();
-            if (!context.mounted) return;
-            Navigator.of(context).pop();
-          },
+          content: 'Please enable location permission in settings.',
         ),
       );
+      if (onApprove == true) {
+        _settingsCompleter = Completer<bool>();
+        await openAppSettings();
+      }
 
       return _settingsCompleter != null
           ? await _settingsCompleter!.future

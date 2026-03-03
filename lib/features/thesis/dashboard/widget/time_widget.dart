@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:workspace/core/utils/app_colors.dart';
 import 'package:workspace/core/utils/app_styles.dart';
-import 'package:workspace/core/components/app_text.dart';
 import 'package:workspace/features/thesis/home/cubit/home_cubit.dart';
 import 'package:workspace/features/thesis/dashboard/widget/dashboard_map.dart';
 
@@ -35,10 +34,12 @@ class TimeWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CommonText(
+                    Text(
                       state.time ?? '',
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
+                      style: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     Text(state.date ?? '', style: AppStyles.mediumGrey12),
                     const SizedBox(height: 20),

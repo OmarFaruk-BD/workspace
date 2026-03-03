@@ -27,6 +27,8 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
   DateTime? endDate;
   String? leaveType;
 
+  final List<String> _leaveTypeList = ['Sick', 'Vacation', 'Casual', 'Other'];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -66,20 +68,15 @@ class _LeaveApplyPageState extends State<LeaveApplyPage> {
             const SizedBox(height: 25),
             ItemSelectionField(
               text: leaveType ?? 'Select leave type',
-              onTap: () {
-                AppPopup.showAnimated(
+              onTap: () async {
+                final result = await AppPopup.show<String>(
                   context: context,
-                  child: ItemSelectionPopUp(
-                    list: const [
-                      'Sick Leave',
-                      'Casual Leave',
-                      'Vacation Leave',
-                      'Other',
-                    ],
+                  widget: ItemSelectionPopup(
+                    list: _leaveTypeList,
                     selectedItem: leaveType,
-                    onSelected: (value) => setState(() => leaveType = value),
                   ),
                 );
+                setState(() => leaveType = result ?? 'Sick');
               },
             ),
             const SizedBox(height: 10),

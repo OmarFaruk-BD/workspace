@@ -147,7 +147,7 @@ class LeaveRequestItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (!isPrevious) {
-            AppNavigator.pushTo(
+            AppNavigator.push(
               context,
               EditLeaveRequest(leave: data, assignedTo: assignedTo),
             ).then((_) => onEdit?.call());
